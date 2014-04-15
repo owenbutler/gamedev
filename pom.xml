@@ -10,18 +10,18 @@
     <name>Java game engine base</name>
     <url>http://owenbutler.org</url>
 
-		<packaging>pom</packaging>
-		
-		<modules>
-		    <module>jGameEngine</module>
-		    <module>warpBall</module>
-		    <module>planetesimal</module>
-		    <module>invasion</module>
-		    <module>bcatch</module>
-		    <module>grazier</module>
-		    <module>theta</module>
-		    <module>goose</module>
-		</modules>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>jGameEngine</module>
+        <module>warpBall</module>
+        <module>planetesimal</module>
+        <module>invasion</module>
+        <module>bcatch</module>
+        <module>grazier</module>
+        <module>theta</module>
+        <module>goose</module>
+    </modules>
 
     <dependencies>
 
@@ -30,6 +30,18 @@
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lwjgl.lwjgl</groupId>
+            <artifactId>lwjgl</artifactId>
+            <version>2.8.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.java.jinput</groupId>
+            <artifactId>jinput</artifactId>
+            <version>2.0.5</version>
         </dependency>
 
 
