@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <import resource="testGameBase.xml" />
+    
+    <bean id="connectionHandler" class="org.jgameengine.network.ClientConnectionHandler">
+        <property name="serverAddress" value="localhost" />
+        <property name="serverPort" value="7000" />
+        <property name="engine" ref="engine" />
+    </bean>
+
+    <bean id="packetAndGameLogicHandler" class="org.jgameengine.testgame.network.TestGameClientPacketHandler">
+
+        <!--
+            Rate at which the server is updated of the clients position.
+
+            Expressed as floating point seconds, so 0.02 is 50 times a second.
+        -->
+        <property name="serverUpdateRate" value="0.02" />
+    </bean>
+
+    <bean id="engineInitialiser" class="org.jgameengine.testgame.initialiser.TestGameClientInitialiser">
+        <property name="engine" ref="engine"/>
+    </bean>
+
+<!--
+    <bean id="audioManager" class="org.jgameengine.audio.BlankAudioManager">
+    </bean>
+-->
+    <bean id="audioManager" class="org.jgameengine.audio.fmod.FMODAudioManager">
+        <property name="numberOfChannels" value="64"/>
+        <property name="sampleRate" value="44100"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- webstart file for CHANGEME -->
+
+<jnlp
+        spec="1.0+"
+        codebase="http://www.owenbutler.org/planetesimal/"
+        href="game.jnlp">
+
+    <information>
+        <title>planetesimal</title>
+        <vendor>Owen Butler</vendor>
+        <homepage href="http://www.owenbutler.org"/>
+
+        <description>a game about rocks</description>
+        <description kind="short">a game abour rocks</description>
+        <icon href="icon.gif"/>
+        <icon kind="splash" href="splash.gif"/>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+" max-heap-size="256M"/>
+        <jar href="planetesimal-1.0-SNAPSHOT.jar"/>
+        <jar href="jGameEngine-1.0-SNAPSHOT.jar"/>
+        <jar href="commons-lang-2.2.jar"/>
+        <jar href="commons-logging-api-1.0.4.jar"/>
+        <jar href="log4j-1.2.14.jar"/>
+        <jar href="lwjgl.jar"/>
+        <jar href="jogg-0.0.7.jar"/>
+        <jar href="jorbis-0.0.15.jar"/>
+        <jar href="slick-util-20080319.jar"/>
+        <jar href="spring-core-2.5.2.jar"/>
+        <jar href="spring-beans-2.5.2.jar"/>
+    </resources>
+
+    <resources os="Windows">
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+" max-heap-size="256M"/>
+        <nativelib href="lwjgl-native-win32.jar"/>
+    </resources>
+    <resources os="Linux">
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+" max-heap-size="256M"/>
+        <nativelib href="lwjgl-native-linux.jar"/>
+    </resources>
+    <resources os="Mac OS">
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+" max-heap-size="256M"/>
+        <nativelib href="lwjgl-native-macosx.jar"/>
+    </resources>
+    <application-desc/>
+</jnlp>
+

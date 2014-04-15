@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <!-- import the engine definitions -->
+    <import resource="classpath:org/jgameengine/base/engineBase.xml"/>
+
+    <!-- renderer declaration
+        Important properties are screenWidth and screenHeight -->
+    <bean id="engineRenderer" class="org.jgameengine.renderer.lwjgl.LWJGL2dRenderer">
+        <property name="engine" ref="engine"/>
+        <property name="screenWidth" value="800"/>
+        <property name="screenHeight" value="600"/>
+
+        <property name="gameName" value="grazier"/>
+
+        <property name="showFramerate" value="true"/>
+
+        <property name="useShaders" value="false"/>
+
+        <property name="vertexShaderFile" value="vertexShader.glsl"/>
+        <property name="fragmentShaderFile" value="fragmentShader.glsl"/>
+
+        <property name="sync" value="false"/>
+        <property name="syncRate" value="100"/>
+    </bean>
+
+    <!-- manager for HUD duties -->
+    <bean id="engineHudManager" class="org.owenbutler.grazier.logic.HudManager">
+        <property name="engine" ref="engine"/>
+        <property name="fontName" value="technoid.ttf"/>
+        <property name="fontSize" value="20"/>
+    </bean>
+
+    <!-- input manager -->
+    <bean id="engineInputManager" class="org.jgameengine.input.LWJGLInputManager">
+        <property name="mouseVerticalSize" value="600"/>
+    </bean>
+
+    <!-- collision detection -->
+    <bean id="collisionDetectionHandler"
+          class="org.jgameengine.collision.XSortedCircularCollisionDetectionHandlerGamma">
+        <!--<bean id="collisionDetectionHandler" class="org.jgameengine.collision.XSortedCircularCollisionDetectionHandlerBeta">-->
+        <!--<bean id="collisionDetectionHandler" class="org.jgameengine.collision.XSortedCircularCollisionDetectionHandlerAlpha">-->
+        <!--<bean id="collisionDetectionHandler" class="org.jgameengine.collision.XSortedCircularCollisionDetectionHandler">-->
+    </bean>
+
+
+    <bean id="audioManager" class="org.jgameengine.audio.slickutil.SlickUtilAudioManager">
+    </bean>
+
+    <!--<bean id="audioManager" class="org.jgameengine.audio.BlankAudioManager">-->
+    <!--</bean>-->
+
+
+    <bean id="engineInitialiser" class="org.owenbutler.grazier.initialiser.Initialiser">
+        <property name="engine" ref="engine"/>
+
+        <property name="preLoadGraphics">
+            <list>
+                <value>"gfx/textureNotFound.png"</value>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_player"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_enemy"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_bullet"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_enemyBullet"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_enemyDebri"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_grazer"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_enemyBulletGrazed"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_background"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_rainbow"/>
+                <util:constant static-field="org.owenbutler.grazier.constants.AssetConstants.gfx_smallRainbow"/>
+
+            </list>
+        </property>
+
+
+        <property name="preLoadSounds">
+            <map>
+                <!--<entry>-->
+                <!--<key><util:constant static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_playerHit"/></key>-->
+                <!--<value>255</value>-->
+                <!--</entry>-->
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!-- no network in this game, so configure an appropriate empty connection handler -->
+    <bean id="connectionHandler" class="org.jgameengine.network.NoOperationConnectionHandler"/>
+
+    <bean id="packetAndGameLogicHandler" class="org.jgameengine.network.NoOperationPacketHandler"/>
+
+    <!-- score manager for the game -->
+    <bean id="scoreManager" class="org.jgameengine.common.score.DefaultScoreManager">
+        <property name="engine" ref="engine"/>
+    </bean>
+</beans>

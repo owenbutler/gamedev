@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <!-- engine definition -->
+    <bean id="engine" class="org.jgameengine.engine.Engine">
+
+        <!-- the network driver handles the grunt transport work of the networking, then
+                routes off packets to the packet handler-->
+        <property name="networkDriver" ref="connectionHandler"/>
+
+        <!-- the packethandler gets notified when game packets arrive.  Game packets are usually custom per game -->
+        <property name="packetHandler" ref="packetAndGameLogicHandler"/>
+
+        <!-- similar to the packetHandler, the gamelogic handler recieves notifications of game logic events -->
+        <property name="gameLogicHandler" ref="packetAndGameLogicHandler"/>
+
+        <!-- renderer used to display -->
+        <property name="renderer" ref="engineRenderer"/>
+        <property name="hudManager" ref="engineHudManager"/>
+
+        <!-- input manager used to handle the grunt work of input -->
+        <property name="inputManager" ref="engineInputManager"/>
+
+        <!--
+            game initialiser
+             This guy is called once before the first frame is started
+             use it to insert your custom game objects
+        -->
+        <property name="engineInitialiser" ref="engineInitialiser"/>
+
+        <!-- Default event handler used by the engine -->
+        <property name="eventHandler">
+            <bean id="defaultEventHandler" class="org.jgameengine.common.events.DefaultEventHandler">
+                <property name="engine" ref="engine" /> 
+            </bean>
+        </property>
+
+        <!-- the implementation of collision detection that the engine uses -->
+        <property name="collisionDetectionHandler" ref="collisionDetectionHandler" />
+
+        <!-- audio manager for the engine -->
+        <property name="audioManager" ref="audioManager" />
+
+        <!-- score manager for the engine, and default -->
+        <property name="scoreManager" ref="scoreManager" />
+    </bean>
+
+</beans>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <!-- import the engine definitions -->
+    <import resource="classpath:org/jgameengine/base/engineBase.xml"/>
+
+    <!-- renderer declaration
+        Important properties are screenWidth and screenHeight -->
+    <bean id="engineRenderer" class="org.jgameengine.renderer.lwjgl.LWJGL2dRenderer">
+        <property name="engine" ref="engine"/>
+        <property name="screenWidth" value="640"/>
+        <property name="screenHeight" value="480"/>
+
+        <property name="gameName" value="theta"/>
+
+        <property name="showFramerate" value="false"/>
+
+        <property name="useShaders" value="false"/>
+
+        <property name="vertexShaderFile" value="vertexShader.glsl"/>
+        <property name="fragmentShaderFile" value="fragmentShader.glsl"/>
+
+        <property name="clearColorR" value="0.705882352941176"/>
+        <property name="clearColorG" value="0.905882352941176"/>
+        <property name="clearColorB" value="0.87843137254902"/>
+    </bean>
+
+    <!-- manager for HUD duties -->
+    <bean id="engineHudManager" class="org.owenbutler.theta.logic.HudManager">
+        <property name="engine" ref="engine"/>
+        <property name="fontName" value="prohit2.ttf"/>
+        <property name="fontSize" value="29"/>
+    </bean>
+
+    <!-- input manager -->
+    <bean id="engineInputManager" class="org.jgameengine.input.LWJGLInputManager">
+        <property name="mouseVerticalSize" value="480"/>
+    </bean>
+
+    <!-- collision detection -->
+    <bean id="collisionDetectionHandler" class="org.jgameengine.collision.XSortedCircularCollisionDetectionHandler">
+    </bean>
+
+
+    <!--<bean id="audioManager" class="org.jgameengine.audio.slickutil.SlickUtilAudioManager">-->
+    <!--</bean>-->
+
+    <bean id="audioManager" class="org.jgameengine.audio.BlankAudioManager">
+    </bean>
+
+
+    <bean id="engineInitialiser" class="org.owenbutler.theta.initialiser.Initialiser">
+        <property name="engine" ref="engine"/>
+
+        <property name="preLoadGraphics">
+            <list>
+                <value>"gfx/textureNotFound.png"</value>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_player"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_bullet"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_cloud"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_enemy1"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_enemy2"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_enemy3"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_enemy4"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_smallHomingEnemy1"/>
+
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_debri1"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_debri2"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_debri3"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_debri4"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_strike"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_enemyBullet"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_explosionSmoke"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_darkExplosionSmoke"/>
+                <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.gfx_playerHitWave"/>
+
+            </list>
+        </property>
+
+
+        <property name="preLoadSounds">
+            <map>
+                <!--<entry>-->
+                <!--<key><util:constant static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_playerHit"/></key>-->
+                <!--<value>255</value>-->
+                <!--</entry>-->
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_playerGun"/>
+                    </key>
+                    <value>100</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_playerGunEnd"/>
+                    </key>
+                    <value>100</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_gameStarts"/>
+                    </key>
+                    <value>200</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_bossSpawn"/>
+                    </key>
+                    <value>200</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_enemyShoot"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_gameOver"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_enemyGun"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_playerDamage"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_enemyDamage"/>
+                    </key>
+                    <value>150</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <util:constant static-field="org.owenbutler.theta.constants.AssetConstants.snd_enemyDie"/>
+                    </key>
+                    <value>100</value>
+                </entry>
+
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!-- no network in this game, so configure an appropriate empty connection handler -->
+    <bean id="connectionHandler" class="org.jgameengine.network.NoOperationConnectionHandler"/>
+
+    <bean id="packetAndGameLogicHandler" class="org.jgameengine.network.NoOperationPacketHandler"/>
+
+    <!-- score manager for the game -->
+    <bean id="scoreManager" class="org.jgameengine.common.score.DefaultScoreManager">
+        <property name="engine" ref="engine"/>
+    </bean>
+</beans>

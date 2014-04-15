@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- webstart file for CHANGEME -->
+
+<jnlp
+        spec="1.0+"
+        codebase="http://www.owenbutler.org/JGE_ARTIFACT_ID/"
+        href="game.jnlp">
+
+    <information>
+        <title>JGE_ARTIFACT_ID</title>
+        <vendor>Owen Butler</vendor>
+        <homepage href="http://www.owenbutler.org"/>
+
+        <description>JGE_JNLP_DESCRIPTION</description>
+        <description kind="short">JGE_JNLP_SHORT_DESCRIPTION</description>
+        <icon href="icon.gif"/>
+        <icon kind="splash" href="splash.gif"/>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+"/>
+        <jar href="JGE_ARTIFACT_ID-1.0-SNAPSHOT.jar"/>
+        <jar href="jGameEngine-1.0-SNAPSHOT.jar"/>
+        <jar href="commons-lang-2.2.jar"/>
+        <jar href="commons-logging-api-1.0.4.jar"/>
+        <jar href="log4j-1.2.14.jar"/>
+        <jar href="lwjgl.jar"/>
+        <jar href="lwjgl_util.jar"/>
+        <jar href="jinput.jar"/>
+        <jar href="jogg-0.0.7.jar"/>
+        <jar href="jorbis-0.0.15.jar"/>
+        <jar href="slick-util-20081222.jar"/>
+        <jar href="spring-core-2.5.2.jar"/>
+        <jar href="spring-beans-2.5.2.jar"/>
+    </resources>
+
+    <resources os="Windows">
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+"/>
+        <nativelib href="lwjgl-2.0.1-win32.jar"/>
+    </resources>
+    <resources os="Linux">
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+"/>
+        <nativelib href="lwjgl-2.0.1-linux.jar"/>
+    </resources>
+    <resources os="Mac OS">
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+"/>
+        <nativelib href="lwjgl-2.0.1-macosx.jar"/>
+    </resources>
+    <application-desc/>
+</jnlp>
+

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <!-- import the engine definitions -->
+    <import resource="classpath:org/jgameengine/base/engineBase.xml"/>
+
+    <!-- renderer declaration
+        Important properties are screenWidth and screenHeight -->
+    <bean id="engineRenderer" class="org.jgameengine.renderer.lwjgl.LWJGL2dRenderer">
+        <property name="engine" ref="engine"/>
+        <property name="screenWidth" value="800"/>
+        <property name="screenHeight" value="600"/>
+
+        <property name="gameName" value="planetesimal"/>
+
+        <property name="showFramerate" value="true"/>
+
+        <property name="useShaders" value="false"/>
+
+        <property name="vertexShaderFile" value="vertexShader.glsl"/>
+        <property name="fragmentShaderFile" value="fragmentShader.glsl"/>
+
+    </bean>
+
+    <!-- manager for HUD duties -->
+    <bean id="engineHudManager" class="org.owenbutler.planetesimal.logic.PlanetesimalHudManager">
+        <property name="engine" ref="engine"/>
+        <property name="fontName" value="technoid.ttf"/>
+        <property name="fontSize" value="30"/>
+    </bean>
+
+    <!-- input manager -->
+    <bean id="engineInputManager" class="org.jgameengine.input.LWJGLInputManager">
+        <property name="mouseVerticalSize" value="600"/>
+    </bean>
+
+    <!-- collision detection -->
+    <bean id="collisionDetectionHandler" class="org.jgameengine.collision.XSortedCircularCollisionDetectionHandler">
+    </bean>
+
+
+    <bean id="audioManager" class="org.jgameengine.audio.slickutil.SlickUtilAudioManager">
+    </bean>
+
+    <!--<bean id="audioManager" class="org.jgameengine.audio.BlankAudioManager">-->
+    <!--</bean>-->
+
+
+    <bean id="engineInitialiser" class="org.owenbutler.planetesimal.initialiser.PlanetesimalInitialiser">
+        <property name="engine" ref="engine"/>
+
+        <property name="preLoadGraphics">
+            <list>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_asteroid1"/>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_player"/>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_smokePuff"/>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_playerBullet1"/>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_debri1"/>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_smallExplosion"/>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_particle"/>
+                <util:constant static-field="org.owenbutler.planetesimal.constants.AssetConstants.gfx_largeExplosion"/>
+
+            </list>
+        </property>
+
+
+        <property name="preLoadSounds">
+            <map>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.owenbutler.planetesimal.constants.AssetConstants.snd_asteroidDamage"/>
+                    </key>
+                    <value>200</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.owenbutler.planetesimal.constants.AssetConstants.snd_asteroidDestroy"/>
+                    </key>
+                    <value>100</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.owenbutler.planetesimal.constants.AssetConstants.snd_playerDead"/>
+                    </key>
+                    <value>200</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.owenbutler.planetesimal.constants.AssetConstants.snd_playerFire"/>
+                    </key>
+                    <value>100</value>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!-- no network in this game, so configure an appropriate empty connection handler -->
+    <bean id="connectionHandler" class="org.jgameengine.network.NoOperationConnectionHandler"/>
+
+    <bean id="packetAndGameLogicHandler" class="org.jgameengine.network.NoOperationPacketHandler"/>
+
+    <!-- score manager for the game -->
+    <bean id="scoreManager" class="org.jgameengine.common.score.DefaultScoreManager">
+        <property name="engine" ref="engine"/>
+    </bean>
+</beans>

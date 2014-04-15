@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <import resource="testGameBase.xml" />
+
+    <bean id="connectionHandler" class="org.jgameengine.network.ServerConnectionHandler">
+        <property name="address" value="localhost" />
+        <property name="port" value="7000" />
+    </bean>
+
+    <bean id="packetAndGameLogicHandler" class="org.jgameengine.testgame.network.TestGameServerPacketHandler">
+        <!--
+            rate at which clients are updated of the worldstate
+
+            Expressed as floating point seconds, so 0.02 is 50 times a second.
+        -->
+        <property name="clientUpdateRate" value="0.02"/>
+    </bean>
+
+    <bean id="engineInitialiser" class="org.jgameengine.engine.DefaultEngineInitialiser"/>
+
+    <bean id="audioManager" class="org.jgameengine.audio.BlankAudioManager" />
+</beans>

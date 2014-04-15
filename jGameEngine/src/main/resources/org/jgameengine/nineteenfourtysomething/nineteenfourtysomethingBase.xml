@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <!-- import the engine definitions -->
+    <import resource="classpath:org/jgameengine/base/engineBase.xml"/>
+
+    <!-- renderer declaration
+        Important properties are screenWidth and screenHeight -->
+    <bean id="engineRenderer" class="org.jgameengine.renderer.lwjgl.LWJGL2dRenderer">
+        <property name="engine" ref="engine"/>
+        <property name="screenWidth" value="640"/>
+        <property name="screenHeight" value="480"/>
+
+        <property name="gameName" value="194something"/>
+
+        <property name="showFramerate" value="true"/>
+
+        <property name="useShaders" value="true"/>
+
+        <property name="vertexShaderFile" value="vertexShader.glsl"/>
+        <property name="fragmentShaderFile" value="fragmentShader.glsl"/>
+
+    </bean>
+
+    <!-- manager for HUD duties -->
+    <bean id="engineHudManager" class="org.jgameengine.nineteenfourtysomething.logic.NineHudManager">
+        <property name="engine" ref="engine"/>
+        <property name="fontName" value="technoid.ttf"/>
+        <property name="fontSize" value="20"/>
+    </bean>
+
+    <!-- input manager -->
+    <bean id="engineInputManager" class="org.jgameengine.input.LWJGLInputManager">
+        <property name="mouseVerticalSize" value="480"/>
+    </bean>
+
+    <!-- collision detection -->
+    <bean id="collisionDetectionHandler" class="org.jgameengine.collision.XSortedCircularCollisionDetectionHandler">
+    </bean>
+
+
+    <!--<bean id="audioManager" class="org.jgameengine.audio.fmod.FMODAudioManager">-->
+    <!--<property name="numberOfChannels" value="64"/>-->
+    <!--<property name="sampleRate" value="44100"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="audioManager" class="org.jgameengine.audio.slickutil.SlickUtilAudioManager">-->
+    <!--</bean>-->
+
+    <bean id="audioManager" class="org.jgameengine.audio.BlankAudioManager">
+    </bean>
+
+    <bean id="engineInitialiser" class="org.jgameengine.nineteenfourtysomething.initialiser.GameInitialiser">
+        <property name="engine" ref="engine"/>
+
+        <property name="preLoadGraphics">
+            <list>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_cloud"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_enemySmall"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_mediumShips"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_largeShips"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_enemyBullet"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_playerShip"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_playerBullet"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_playerBulletsThick"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_explosion1"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_explosion2"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_explosion3"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_smallExplosion"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_mediumExplosion"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_coins"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_scores"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_transExplosion"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_debri1"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_spark"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_introScreen"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_smallSmoke"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_numbers"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_smokePuff"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_missiles"/>
+                <util:constant
+                        static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.gfx_powerups"/>
+
+            </list>
+        </property>
+
+
+        <property name="preLoadSounds">
+            <map>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_playerGun"/>
+                    </key>
+                    <value>155</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_playerGunEnd"/>
+                    </key>
+                    <value>155</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_playerHit"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_enemyGun"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_enemyGunMedium"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_enemySpamGun"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_enemyHit"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_explosion0"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_explosion1"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_explosion2"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_explosion3"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_warAmbient"/>
+                    </key>
+                    <value>255</value>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant
+                                static-field="org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants.snd_playerIdle"/>
+                    </key>
+                    <value>80</value>
+                </entry>
+
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!-- no network in this game, so configure an appropriate empty connection handler -->
+    <bean id="connectionHandler" class="org.jgameengine.network.NoOperationConnectionHandler"/>
+
+    <bean id="packetAndGameLogicHandler" class="org.jgameengine.network.NoOperationPacketHandler"/>
+
+    <!-- score manager for the game -->
+    <bean id="scoreManager" class="org.jgameengine.nineteenfourtysomething.logic.XXXScoreManager">
+        <property name="engine" ref="engine"/>
+    </bean>
+</beans>
