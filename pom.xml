@@ -14,13 +14,13 @@
 
     <modules>
         <module>jGameEngine</module>
-        <module>warpBall</module>
-        <module>planetesimal</module>
-        <module>invasion</module>
-        <module>bcatch</module>
-        <module>grazier</module>
-        <module>theta</module>
-        <module>goose</module>
+        <!--<module>warpBall</module>-->
+        <!--<module>planetesimal</module>-->
+        <!--<module>invasion</module>-->
+        <!--<module>bcatch</module>-->
+        <!--<module>grazier</module>-->
+        <!--<module>theta</module>-->
+        <!--<module>goose</module>-->
     </modules>
 
     <dependencies>
