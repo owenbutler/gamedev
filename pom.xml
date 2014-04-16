@@ -44,6 +44,23 @@
             <version>2.0.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.cokeandcode.slick</groupId>
+            <artifactId>slick-util</artifactId>
+            <version>20140416</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.cokeandcode.slick</groupId>
+            <artifactId>jogg</artifactId>
+            <version>0.0.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.cokeandcode.slick</groupId>
+            <artifactId>jorbis</artifactId>
+            <version>0.0.15</version>
+        </dependency>
 
     </dependencies>
 
