@@ -14,7 +14,7 @@ public class XSortedCircularCollisionDetectionHandler
     private CollidableXSortedRadiusComparator comparator = new CollidableXSortedRadiusComparator();
 
     public void doCollisionDetection(Set gameObjects) {
-        List<Collidable> collidables = new ArrayList<Collidable>(gameObjects.size());
+        List<Collidable> collidables = new ArrayList<>(gameObjects.size());
 
         for (Object iGameObject : gameObjects) {
             if (iGameObject instanceof Collidable) {

@@ -27,7 +27,7 @@ public class GameLogic implements MouseListener, PauseListener {
 
     protected float enemySpawnTime;
 
-    Set<BaseDrawableGameObject> wingmen = new HashSet<BaseDrawableGameObject>();
+    Set<BaseDrawableGameObject> wingmen = new HashSet<>();
 
     public GameLogic(Engine engine) {
         this.engine = engine;

@@ -4,8 +4,7 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 
 import javax.imageio.ImageIO;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
@@ -26,7 +25,7 @@ import java.util.Map;
 
 public class LWJGLTextureCache {
 
-    private static Map<String, Integer> textures = new HashMap<String, Integer>();
+    private static Map<String, Integer> textures = new HashMap<>();
 
     private static ColorModel glAlphaColorModel = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB),
             new int[]{8, 8, 8, 8},

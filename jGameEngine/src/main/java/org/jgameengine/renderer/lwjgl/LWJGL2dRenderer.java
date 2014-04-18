@@ -60,7 +60,7 @@ public class LWJGL2dRenderer
 
     private static final Logger logger = Logger.getLogger(LWJGL2dRenderer.class.getName());
 
-    private List<Renderable> renderables = new LinkedList<Renderable>();
+    private List<Renderable> renderables = new LinkedList<>();
 
     private int screenWidth;
     private int screenHeight;

@@ -8,7 +8,14 @@ import org.jgameengine.network.NetworkPacketHandler;
 import org.jgameengine.testgame.gameobjects.renderables.ClientDronePlayerShip;
 import org.jgameengine.testgame.gameobjects.renderables.ControllablePlayerShip;
 import org.jgameengine.testgame.gameobjects.renderables.PlayerBullet;
-import org.jgameengine.testgame.network.packets.*;
+import org.jgameengine.testgame.network.packets.ClientLeftGamePacket;
+import org.jgameengine.testgame.network.packets.JoinResponsePacket;
+import org.jgameengine.testgame.network.packets.MissilePacket;
+import org.jgameengine.testgame.network.packets.PlayerDamagePacket;
+import org.jgameengine.testgame.network.packets.PlayerLocationUpdatePacket;
+import org.jgameengine.testgame.network.packets.PlayerSpawnPacket;
+import org.jgameengine.testgame.network.packets.WorldStatePacket;
+import org.jgameengine.testgame.network.packets.WorldStatePlayerObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +34,7 @@ public class TestGameClientPacketHandler
 
     private float serverUpdateRate;
 
-    private Map<Integer, ClientDronePlayerShip> connectionIdToShip = new HashMap<Integer, ClientDronePlayerShip>();
+    private Map<Integer, ClientDronePlayerShip> connectionIdToShip = new HashMap<>();
 
 
     public void initPacketHandler(Engine engine) {

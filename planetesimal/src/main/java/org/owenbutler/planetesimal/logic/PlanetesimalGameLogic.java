@@ -5,18 +5,17 @@ import org.jgameengine.common.events.Event;
 import org.jgameengine.common.gameobjects.GameObject;
 import org.jgameengine.engine.Engine;
 import org.jgameengine.input.MouseListener;
-import org.owenbutler.planetesimal.constants.GameConstants;
 import org.owenbutler.planetesimal.constants.AssetConstants;
+import org.owenbutler.planetesimal.constants.GameConstants;
 import org.owenbutler.planetesimal.renderables.Asteroid1;
 import org.owenbutler.planetesimal.renderables.Asteroid2;
 import org.owenbutler.planetesimal.renderables.BaseAsteroid;
-import org.owenbutler.planetesimal.renderables.Player;
-import org.owenbutler.planetesimal.renderables.Asteroid3;
-import org.owenbutler.planetesimal.renderables.PlayerBullet1;
 import org.owenbutler.planetesimal.renderables.LargeExplosion;
 import org.owenbutler.planetesimal.renderables.Particle;
-import org.owenbutler.planetesimal.renderables.VerySmallExplosion;
+import org.owenbutler.planetesimal.renderables.Player;
+import org.owenbutler.planetesimal.renderables.PlayerBullet1;
 import org.owenbutler.planetesimal.renderables.SmokePuff;
+import org.owenbutler.planetesimal.renderables.VerySmallExplosion;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,14 +24,14 @@ import java.util.Set;
 
 /**
  * Defines the major stages that the game goes through.
- *
+ * <p/>
  * EG:
- *
+ * <p/>
  * Game starts
  * Game ends
  * Show intro screen
  * etc..
- * 
+ *
  * @author Owen Butler
  */
 public class PlanetesimalGameLogic implements MouseListener {
@@ -48,7 +47,7 @@ public class PlanetesimalGameLogic implements MouseListener {
 
     protected int score;
 
-    List<Integer> highScores = new ArrayList<Integer>();
+    List<Integer> highScores = new ArrayList<>();
     private int gameLevel;
     private int livingAsteroids;
 
@@ -85,14 +84,14 @@ public class PlanetesimalGameLogic implements MouseListener {
             Asteroid1 asteroid = new Asteroid1(0, 0);
 
             float asteroidX, asteroidY;
-            
+
             float yVel = RandomUtils.nextInt(GameConstants.ASTEROID_VEL_RANDOM) - (GameConstants.ASTEROID_VEL_RANDOM / 2);
             float xVel = RandomUtils.nextInt(GameConstants.ASTEROID_VEL_RANDOM) - (GameConstants.ASTEROID_VEL_RANDOM / 2);
 
             if (yVel < 0) {
                 asteroidY = engine.getRenderer().getScreenHeight() + asteroid.getSurface().getHeight();
             } else {
-                asteroidY = - asteroid.getSurface().getHeight();   
+                asteroidY = -asteroid.getSurface().getHeight();
             }
 
             asteroidX = RandomUtils.nextInt(engine.getRenderer().getScreenWidth());
@@ -114,7 +113,7 @@ public class PlanetesimalGameLogic implements MouseListener {
     public void gameEnds() {
 
         gameLevel = 0;
-        
+
         hud.showIntroScreen();
         saveScore();
         resetScore();
@@ -129,11 +128,11 @@ public class PlanetesimalGameLogic implements MouseListener {
         Set<GameObject> gameObjects = engine.getGameObjects();
         for (GameObject gameObject : gameObjects) {
             if (gameObject instanceof BaseAsteroid) {
-                ((BaseAsteroid)gameObject).gameOverRemove();
+                ((BaseAsteroid) gameObject).gameOverRemove();
             }
 
             if (gameObject instanceof PlayerBullet1) {
-                ((PlayerBullet1)gameObject).removeSelf();
+                ((PlayerBullet1) gameObject).removeSelf();
             }
         }
     }
@@ -166,7 +165,7 @@ public class PlanetesimalGameLogic implements MouseListener {
 
         hud.showScore();
 
-        spawnLevel();        
+        spawnLevel();
     }
 
 
@@ -175,7 +174,7 @@ public class PlanetesimalGameLogic implements MouseListener {
         if (player.isDead()) {
             return;
         }
-        
+
         player.setDead(true);
         player.setBlRender(false);
 
@@ -294,5 +293,5 @@ public class PlanetesimalGameLogic implements MouseListener {
     public void button2Up() {
 
     }
-    
+
 }

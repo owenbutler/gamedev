@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class AnimationBufferCache {
 
-    private static Map<String, FloatBuffer[]> frameArrayMap = new HashMap<String, FloatBuffer[]>();
+    private static Map<String, FloatBuffer[]> frameArrayMap = new HashMap<>();
 
     public static FloatBuffer[] getAnimationFrames(int tilesHorizontal, int tilesVertical) {
 

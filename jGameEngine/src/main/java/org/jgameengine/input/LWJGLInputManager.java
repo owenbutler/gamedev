@@ -15,14 +15,14 @@ public class LWJGLInputManager
 
     private static final Logger logger = Logger.getLogger(LWJGLInputManager.class.getName());
 
-    private List<MovementListener> movementListeners = new ArrayList<MovementListener>();
+    private List<MovementListener> movementListeners = new ArrayList<>();
 
-    private List<MouseListener> mouseListeners = new ArrayList<MouseListener>();
+    private List<MouseListener> mouseListeners = new ArrayList<>();
 
-    private List<MouseListener> addedMouseListeners = new ArrayList<MouseListener>();
-    private List<MouseListener> removedMouseListeners = new ArrayList<MouseListener>();
+    private List<MouseListener> addedMouseListeners = new ArrayList<>();
+    private List<MouseListener> removedMouseListeners = new ArrayList<>();
 
-    private List<PauseListener> pauseListeners = new ArrayList<PauseListener>();
+    private List<PauseListener> pauseListeners = new ArrayList<>();
 
     private int mouseVerticalSize;
 

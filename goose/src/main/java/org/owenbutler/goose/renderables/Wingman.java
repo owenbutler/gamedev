@@ -54,7 +54,7 @@ public class Wingman extends BaseDrawableGameObject {
     protected WingmanSensor wingmanSensor;
 
     // set of objects that are have been sensed by the wingman sensor
-    protected Set<BaseDrawableGameObject> wingmenWithinRadius = new HashSet<BaseDrawableGameObject>(6);
+    protected Set<BaseDrawableGameObject> wingmenWithinRadius = new HashSet<>(6);
 
     // whether we are taking evasive action or not
     protected boolean evasiveAction;

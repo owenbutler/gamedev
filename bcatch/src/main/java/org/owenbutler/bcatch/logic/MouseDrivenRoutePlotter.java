@@ -19,7 +19,7 @@ public class MouseDrivenRoutePlotter implements MouseListener {
     //    int[] lastPoint = new int[2];
     WayPoint lastPoint = new WayPoint(0, 0);
 
-    List<WayPoint> points = new ArrayList<WayPoint>();
+    List<WayPoint> points = new ArrayList<>();
 
     public MouseDrivenRoutePlotter(Engine gameEngine) {
         this.gameEngine = gameEngine;

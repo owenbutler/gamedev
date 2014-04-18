@@ -11,8 +11,8 @@ import java.util.TreeMap;
 public class SlickUtilAudioManager
         implements AudioManager {
 
-    private Map<String, SlickUtilSampleHandle> samples = new TreeMap<String, SlickUtilSampleHandle>();
-    private Map<String, SlickUtilStreamHandle> musics = new TreeMap<String, SlickUtilStreamHandle>();
+    private Map<String, SlickUtilSampleHandle> samples = new TreeMap<>();
+    private Map<String, SlickUtilStreamHandle> musics = new TreeMap<>();
 
     public void initAudio() {
     }

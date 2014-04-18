@@ -58,7 +58,7 @@ public class GameLogic implements MouseListener {
         dataStore = new WebStartDataStore(contentsUrl);
 
         if (dataStore.loadObject(false) == null) {
-            highScores = new ArrayList<Integer>();
+            highScores = new ArrayList<>();
             highScores.add(1000);
             highScores.add(10000);
             highScores.add(100000);

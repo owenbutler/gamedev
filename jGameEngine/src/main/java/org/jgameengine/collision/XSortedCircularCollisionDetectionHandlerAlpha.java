@@ -11,10 +11,10 @@ import java.util.Set;
 public class XSortedCircularCollisionDetectionHandlerAlpha
         implements CollisionDetectionHandler {
 
-    protected List<Collidable> currentCollideCollidables = new ArrayList<Collidable>();
+    protected List<Collidable> currentCollideCollidables = new ArrayList<>();
 
-    protected List<Collidable> collidablesAddedThisFrame = new ArrayList<Collidable>();
-    protected List<Collidable> collidablesRemovedThisFrame = new ArrayList<Collidable>();
+    protected List<Collidable> collidablesAddedThisFrame = new ArrayList<>();
+    protected List<Collidable> collidablesRemovedThisFrame = new ArrayList<>();
 
     private CollidableXSortedRadiusComparator comparator = new CollidableXSortedRadiusComparator();
 

@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class DefaultGuiManager implements GuiManager {
 
-    Set<GuiElement> guiElements = new HashSet<GuiElement>();
+    Set<GuiElement> guiElements = new HashSet<>();
 
     public void showGui() {
         for (GuiElement guiElement : guiElements) {

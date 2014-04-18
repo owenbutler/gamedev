@@ -26,7 +26,7 @@ public class ObjectStreamNetworkDriver
     private boolean initialised = false;
 
     public ObjectStreamNetworkDriver() {
-        queueIncoming = new ConcurrentLinkedQueue<Object>();
+        queueIncoming = new ConcurrentLinkedQueue<>();
     }
 
     public void initialise(Socket socket) throws InitialisationException {

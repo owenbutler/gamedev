@@ -38,11 +38,11 @@ public class Engine {
 
     private float timeDelta;
 
-    private Set<GameObject> gameObjects = new HashSet<GameObject>();
+    private Set<GameObject> gameObjects = new HashSet<>();
 
-    private Set<GameObject> pendingDeleteObjects = new HashSet<GameObject>();
+    private Set<GameObject> pendingDeleteObjects = new HashSet<>();
 
-    private List<GameObject> pendingAddObjects = new ArrayList<GameObject>(EngineConstants.INITIAL_ADD_GAME_OBJECTS_ARRAY_SIZE);
+    private List<GameObject> pendingAddObjects = new ArrayList<>(EngineConstants.INITIAL_ADD_GAME_OBJECTS_ARRAY_SIZE);
 
     private Renderer renderer;
 
@@ -64,7 +64,7 @@ public class Engine {
 
     private AudioManager audioManager = new BlankAudioManager();
 
-    private Map<String, Object> gameRegisteredServices = new HashMap<String, Object>();
+    private Map<String, Object> gameRegisteredServices = new HashMap<>();
 
     private ScoreManager scoreManager = new DefaultScoreManager();
 

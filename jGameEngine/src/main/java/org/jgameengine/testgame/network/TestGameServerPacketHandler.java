@@ -7,7 +7,17 @@ import org.jgameengine.engine.Engine;
 import org.jgameengine.network.NetworkPacketHandler;
 import org.jgameengine.testgame.gameobjects.renderables.ServerDronePlayerShip;
 import org.jgameengine.testgame.gameobjects.renderables.ServerPlayerBullet;
-import org.jgameengine.testgame.network.packets.*;
+import org.jgameengine.testgame.network.packets.ClientLeftGamePacket;
+import org.jgameengine.testgame.network.packets.JoinPacket;
+import org.jgameengine.testgame.network.packets.JoinResponsePacket;
+import org.jgameengine.testgame.network.packets.MissilePacket;
+import org.jgameengine.testgame.network.packets.PlayerDamagePacket;
+import org.jgameengine.testgame.network.packets.PlayerFirePacket;
+import org.jgameengine.testgame.network.packets.PlayerLocationUpdatePacket;
+import org.jgameengine.testgame.network.packets.PlayerSpawnPacket;
+import org.jgameengine.testgame.network.packets.RequestSpawnPacket;
+import org.jgameengine.testgame.network.packets.WorldStatePacket;
+import org.jgameengine.testgame.network.packets.WorldStatePlayerObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,11 +31,11 @@ public class TestGameServerPacketHandler
 
     private Engine engine;
 
-    private Map<Integer, String> connectionIdToName = new HashMap<Integer, String>();
+    private Map<Integer, String> connectionIdToName = new HashMap<>();
 
-    private Map<Integer, ServerDronePlayerShip> connectionIdToShip = new HashMap<Integer, ServerDronePlayerShip>();
+    private Map<Integer, ServerDronePlayerShip> connectionIdToShip = new HashMap<>();
 
-    private Map<ServerDronePlayerShip, Integer> shipToConnectionId = new HashMap<ServerDronePlayerShip, Integer>();
+    private Map<ServerDronePlayerShip, Integer> shipToConnectionId = new HashMap<>();
 
     private float clientUpdateRate;
 
@@ -50,7 +60,7 @@ public class TestGameServerPacketHandler
             return;
         }
 
-        List<WorldStatePlayerObject> worldList = new ArrayList<WorldStatePlayerObject>();
+        List<WorldStatePlayerObject> worldList = new ArrayList<>();
 
         // create the list of player objects in the world
         for (Map.Entry<Integer, ServerDronePlayerShip> entry : connectionIdToShip.entrySet()) {
@@ -126,7 +136,7 @@ public class TestGameServerPacketHandler
         connectionIdToName.put(connectionId, joinPacket.getName());
 
         // create a "you are joined" packet and send it to the client
-        List<WorldStatePlayerObject> worldList = new ArrayList<WorldStatePlayerObject>();
+        List<WorldStatePlayerObject> worldList = new ArrayList<>();
 
         // create the list of player objects in the world
         // these generics are almost as ugly as STL, and not that handy really...

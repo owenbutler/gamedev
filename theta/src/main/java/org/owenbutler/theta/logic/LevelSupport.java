@@ -20,7 +20,7 @@ public abstract class LevelSupport implements Level {
 
     protected LevelEndListener levelEndListener;
 
-    List<AbstractEnemyBase> levelEnemies = new ArrayList<AbstractEnemyBase>();
+    List<AbstractEnemyBase> levelEnemies = new ArrayList<>();
 
     HudManager hudManager;
 
@@ -127,7 +127,7 @@ public abstract class LevelSupport implements Level {
 
     protected void checkIfAllEnemiesAreDead() {
 
-        List<AbstractEnemyBase> enemiesToRemove = new ArrayList<AbstractEnemyBase>();
+        List<AbstractEnemyBase> enemiesToRemove = new ArrayList<>();
 
         for (AbstractEnemyBase levelLargeEnemy : levelEnemies) {
             if (levelLargeEnemy.isDead()) {

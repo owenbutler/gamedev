@@ -40,7 +40,7 @@ public class DefaultGameFlowLogic
 
     private boolean firstRun = true;
 
-    private List<HighScore> highScores = new ArrayList<HighScore>(10);
+    private List<HighScore> highScores = new ArrayList<>(10);
 
     private boolean attemptWebstartHighScores = true;
 

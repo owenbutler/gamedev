@@ -6,7 +6,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.opengl.TextureImpl;
 
-import java.awt.Font;
+import java.awt.*;
 import java.io.BufferedInputStream;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +25,7 @@ abstract public class HudManagerSupport implements HudManager {
 
     protected Color defaultColor;
 
-    protected Set<HudCallback> hudCallbacks = new HashSet<HudCallback>();
+    protected Set<HudCallback> hudCallbacks = new HashSet<>();
 
     public void init() {
         try {

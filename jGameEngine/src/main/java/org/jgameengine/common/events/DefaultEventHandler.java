@@ -22,13 +22,13 @@ public class DefaultEventHandler
 
     private boolean currentlyTriggeringEvents = false;
 
-    private List<ScheduledEvent> scheduledEvents = new LinkedList<ScheduledEvent>();
+    private List<ScheduledEvent> scheduledEvents = new LinkedList<>();
 
-    private Map<Object, Set<ScheduledEvent>> ownerToEventsMap = new HashMap<Object, Set<ScheduledEvent>>();
+    private Map<Object, Set<ScheduledEvent>> ownerToEventsMap = new HashMap<>();
 
-    private List<ScheduledEvent> deletedEvents = new ArrayList<ScheduledEvent>();
+    private List<ScheduledEvent> deletedEvents = new ArrayList<>();
 
-    private List<ScheduledEvent> eventsAddedThisFrame = new ArrayList<ScheduledEvent>();
+    private List<ScheduledEvent> eventsAddedThisFrame = new ArrayList<>();
 
     public void addEventIn(Object eventOwner, float wait, Event newEvent) {
         ScheduledEvent scheduledEvent = new ScheduledEvent(newEvent, engine.getCurrentTime() + wait);
@@ -51,7 +51,7 @@ public class DefaultEventHandler
 
         Set<ScheduledEvent> ownerEventSet = ownerToEventsMap.get(eventOwner);
         if (ownerEventSet == null) {
-            ownerEventSet = new HashSet<ScheduledEvent>();
+            ownerEventSet = new HashSet<>();
             ownerToEventsMap.put(eventOwner, ownerEventSet);
         }
         ownerEventSet.add(event);
