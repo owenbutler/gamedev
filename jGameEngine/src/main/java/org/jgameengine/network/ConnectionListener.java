@@ -15,7 +15,7 @@ public class ConnectionListener
 
     private int portNumber;
 
-    private List newClientQueue;
+    private List<Socket> newClientQueue;
 
     private ServerSocket serverSocket;
 
@@ -27,7 +27,7 @@ public class ConnectionListener
         this.portNumber = portNumber;
     }
 
-    public ConnectionListener(List newClientQueue, int port) {
+    public ConnectionListener(List<Socket> newClientQueue, int port) {
         portNumber = port;
         this.newClientQueue = newClientQueue;
     }

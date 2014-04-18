@@ -67,7 +67,6 @@ public class LWJGLInputManager
             Controller source = Controllers.getEventSource();
 
             if (Controllers.isEventButton()) {
-                int button = Controllers.getEventControlIndex();
                 System.out.println("Event was from " + source.getName() + " and was from button " + Controllers.getEventControlIndex());
             }
             if (Controllers.isEventAxis()) {

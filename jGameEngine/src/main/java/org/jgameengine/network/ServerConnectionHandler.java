@@ -26,9 +26,9 @@ public class ServerConnectionHandler
 
     private ConnectionListener connectionListener;
 
-    private List newClientQueue;
+    private List<Socket> newClientQueue;
 
-    private Map networkDrivers = new HashMap();
+    private Map<Integer, NetworkDriver> networkDrivers = new HashMap<>();
 
     private int nextConnectionId;
 
@@ -41,7 +41,7 @@ public class ServerConnectionHandler
             throws InitialisationException {
         this.engine = engine;
 
-        newClientQueue = Collections.synchronizedList(new LinkedList());
+        newClientQueue = Collections.synchronizedList(new LinkedList<Socket>());
         connectionListener = new ConnectionListener(newClientQueue, port);
 
         connectionListener.init();
@@ -62,17 +62,14 @@ public class ServerConnectionHandler
         }
 
         logger.debug("closing all connections");
-        for (Object o : networkDrivers.entrySet()) {
-            Map.Entry entry = (Map.Entry) o;
-            NetworkDriver connection = (NetworkDriver) entry.getValue();
-
+        for (NetworkDriver connection : networkDrivers.values()) {
             connection.close();
         }
     }
 
     public void processNetwork() {
         while (newClientQueue.size() > 0) {
-            Socket connectionSocket = (Socket) newClientQueue.remove(0);
+            Socket connectionSocket = newClientQueue.remove(0);
 
             NetworkDriver connectionDriver = new ObjectStreamNetworkDriver();
 
@@ -89,7 +86,7 @@ public class ServerConnectionHandler
     }
 
     public void sendPacket(Integer connectionId, Object packet) {
-        NetworkDriver connection = (NetworkDriver) networkDrivers.get(connectionId);
+        NetworkDriver connection = networkDrivers.get(connectionId);
 
         if (connection != null) {
             sendPacket(connection, packet);
@@ -105,8 +102,7 @@ public class ServerConnectionHandler
     }
 
     public void sendPacketToAll(Object packet) {
-        for (Object o : networkDrivers.values()) {
-            NetworkDriver connection = (NetworkDriver) o;
+        for (NetworkDriver connection : networkDrivers.values()) {
             sendPacket(connection, packet);
         }
     }

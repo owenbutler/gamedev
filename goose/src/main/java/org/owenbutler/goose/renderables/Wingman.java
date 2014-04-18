@@ -412,9 +412,8 @@ public class Wingman extends BaseDrawableGameObject {
      */
     public void move() {
 
-        float tVelX = 0, tVelY = 0;
-        tVelX = velX;
-        tVelY = velY;
+        float tVelX = velX;
+        float tVelY = velY;
 
         if (eightWayMoveAdjust) {
             if (Math.abs(velX) == Math.abs(velY)) {

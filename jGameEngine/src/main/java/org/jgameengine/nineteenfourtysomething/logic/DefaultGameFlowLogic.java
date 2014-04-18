@@ -158,6 +158,7 @@ public class DefaultGameFlowLogic
 
             ObjectInputStream inStream = new ObjectInputStream(fileContents.getInputStream());
 
+            //noinspection unchecked
             highScores = (List<HighScore>) inStream.readObject();
 
             inStream.close();
@@ -165,7 +166,6 @@ public class DefaultGameFlowLogic
         } catch (Throwable thr) {
             attemptWebstartHighScores = false;
             logger.debug("fatal error using webstart services to get highscores.  Probably not running in webstart, so disabling further tries");
-            return;
         }
     }
 

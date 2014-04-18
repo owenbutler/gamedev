@@ -1,15 +1,15 @@
 package org.owenbutler.warpball.renderables;
 
-import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
+import org.apache.commons.lang.math.RandomUtils;
 import org.jgameengine.audio.SampleHandle;
+import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.owenbutler.warpball.constants.AssetConstants;
 import org.owenbutler.warpball.constants.GameConstants;
 import org.owenbutler.warpball.logic.WarpBallLogic;
-import org.apache.commons.lang.math.RandomUtils;
 
 /**
  * The ball in our ponglike game.
- * 
+ *
  * @author Owen Butler
  */
 public class Ball
@@ -21,20 +21,11 @@ public class Ball
 
     private float angle;
 
-    /**
-     * constructor.
-     *
-     * @param x           x position
-     * @param y           y position
-     */
     public Ball(float x, float y) {
         super(AssetConstants.gfx_ball, x, y, 16, 16);
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         if (getY() < 8) {
@@ -54,12 +45,13 @@ public class Ball
         if (getX() < 0) {
             WarpBallLogic warpBallLogic = (WarpBallLogic) gameEngine.getRegisteredGameService("game");
             warpBallLogic.enemyScored();
-        } if (getX() > 800) {
+        }
+        if (getX() > 800) {
             WarpBallLogic warpBallLogic = (WarpBallLogic) gameEngine.getRegisteredGameService("game");
             warpBallLogic.playerScored();
         }
 
-        
+
         baseDrawableThink();
     }
 
@@ -122,8 +114,8 @@ public class Ball
         }
 
         angle = initial;
-        
-        return initial;    
+
+        return initial;
     }
 
     public void reverseAngle() {
