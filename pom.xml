@@ -87,7 +87,13 @@
                 <version>2.5.2</version>
             </dependency>
 
-
+            <dependency>
+                <groupId>javax.jnlp</groupId>
+                <artifactId>jnlp-api</artifactId>
+                <version>7.0</version>
+                <scope>system</scope>
+                <systemPath>${java.home}/lib/javaws.jar</systemPath>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -96,6 +102,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
