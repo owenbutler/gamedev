@@ -16,13 +16,6 @@ import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.Ene
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 import org.jgameengine.nineteenfourtysomething.logic.DefaultGameFlowLogic;
 
-/**
- * The basic player object of the world.
- * <p/>
- * The hero of the story, the one who fights all the bad guys etc.. etc..
- *
- * @author Owen Butler
- */
 public class Player
         extends BaseControllableDrawableGameObject
         implements MouseListener, PauseListener {
@@ -50,7 +43,7 @@ public class Player
     private int missilePowerup;
 
     public Player() {
-        super(AssetConstants.gfx_playerShip, 0.0f, 0.0f, PlayerConstants.WIDTH, PlayerConstants.HEIGHT);
+        super(AssetConstants.gfx_playerShip, 0.0f, 0.0f, PlayerConstants.PLAYER_SHIP_WIDTH, PlayerConstants.PLAYER_SHIP_HEIGHT);
 
         setMoveVelX(PlayerConstants.SHIPVELOCITY);
         setMoveVelY(PlayerConstants.SHIPVELOCITY);
@@ -102,9 +95,6 @@ public class Player
         }
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
 
@@ -134,9 +124,6 @@ public class Player
         }
     }
 
-    /**
-     * Fire!
-     */
     private void fire() {
         float[] bulletVel = getVelocityFacing(facingX, facingY, PlayerConstants.PLAYER_BULLET_SPEED);
 
@@ -252,11 +239,6 @@ public class Player
         gameFlow.playerDies();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof EnemyBullet) {
             damage(1);
@@ -290,9 +272,6 @@ public class Player
         }
     }
 
-    /**
-     * Pause requested.
-     */
     public void pause() {
 
         // stop sounds
@@ -306,9 +285,6 @@ public class Player
         gameEngine.pause();
     }
 
-    /**
-     * The opposite of pause.
-     */
     public void unPause() {
 
         if (firing) {

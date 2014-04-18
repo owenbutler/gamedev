@@ -6,20 +6,9 @@ import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.nineteenfourtysomething.constants.GameConstants;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Small rock debri from an explosion.
- * 
- * @author Owen Butler
- */
 public class SmallDebri
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new debri.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
     public SmallDebri(float x, float y) {
         super(AssetConstants.gfx_debri1, x, y, 16, 16);
 
@@ -37,7 +26,7 @@ public class SmallDebri
         });
 
         removeSelfIn(1.5f);
-        
+
         setInitialRandomVelocity();
 
         setRandomRotation();
@@ -52,9 +41,6 @@ public class SmallDebri
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

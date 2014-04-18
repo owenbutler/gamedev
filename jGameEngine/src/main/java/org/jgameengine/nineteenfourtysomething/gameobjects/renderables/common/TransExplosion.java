@@ -5,25 +5,14 @@ import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.nineteenfourtysomething.constants.GameConstants;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * detailed semi transperant explosion.
- *
- * @author Owen Butler
- */
 public class TransExplosion
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new detailed trans explosion.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
     public TransExplosion(float x, float y) {
         super(AssetConstants.gfx_transExplosion, x, y, 64, 64);
 
         setRandomRotation();
-        
+
         getSurface().enableAnimation(null, 8, 8);
         endFrame = 63;
 
@@ -39,9 +28,6 @@ public class TransExplosion
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

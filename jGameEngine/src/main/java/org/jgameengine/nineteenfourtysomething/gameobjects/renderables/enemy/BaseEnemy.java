@@ -14,52 +14,23 @@ import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 import org.jgameengine.nineteenfourtysomething.logic.WarpManager;
 import org.jgameengine.renderer.Surface2dFactory;
 
-/**
- * Base for the enemy ships in the game.
- *
- * @author Owen Butler
- */
 abstract public class BaseEnemy
         extends BaseDrawableGameObject194x {
 
-    /**
-     * The enemies health.
-     */
     protected int health = EnemyShipConstants.DEFAULT_HEALTH;
 
-    /**
-     * The point the enemy is heading towards.
-     */
     protected int[] currentWaypoint;
 
-    /**
-     * When the enemy is going to start shooting.
-     */
     protected float nextShootSequenceStartTime;
 
-    /**
-     * What type of shooting is the enemy doing.
-     */
     protected int shootSequenceType;
 
-    /**
-     * Whether we have played the sound when the shoot sequence starts
-     */
     protected boolean playedShootSequenceStartSound;
 
-    /**
-     * whether the ship should give a bonus when killed.
-     */
     protected boolean giveBonus = true;
 
-    /**
-     * Whether the ship has played a "i'm hit" sound this frame.
-     */
     protected boolean hitSoundThisFrame = false;
 
-    /**
-     * create a new base enemy.
-     */
     public BaseEnemy() {
         super();
         setScreenClipRemove(false);
@@ -76,9 +47,6 @@ abstract public class BaseEnemy
 
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         baseDrawableThink();
@@ -87,16 +55,8 @@ abstract public class BaseEnemy
         hitSoundThisFrame = false;
     }
 
-    /**
-     * Derived enemy ships should do logic here.
-     */
     protected abstract void enemyThink();
 
-    /**
-     * do damage to this enemy.
-     *
-     * @param damage the amount of damange that has occured
-     */
     public void damage(int damage) {
         if (health <= 0) {
             return;
@@ -114,9 +74,6 @@ abstract public class BaseEnemy
         }
     }
 
-    /**
-     * Called when this enemy is killed.
-     */
     public void killed() {
 
         String soundFile = null;
@@ -145,11 +102,6 @@ abstract public class BaseEnemy
         removeSelf();
     }
 
-    /**
-     * Entry point for enemies to explode.
-     * <p/>
-     * By default, we spawn a mid sized explosion.
-     */
     protected void explode() {
         MidExplosion exp = new MidExplosion(x, y);
         gameEngine.addGameObject(exp);
@@ -157,21 +109,9 @@ abstract public class BaseEnemy
         spawnDebri();
     }
 
-    /**
-     * Entry point for enemies to give a bonus.
-     * <p/>
-     * By default, nothing happens.
-     */
     protected void giveBonus() {
     }
 
-    /**
-     * Helper method to get the next spawn point for an enemy ship.
-     * <p/>
-     * In this game, all the ships spawn off the top of the screen in a random spot.
-     *
-     * @return an int[] with the x, y co-ords for the new spawn point.
-     */
     private int[] getNextSpawnPoint() {
         int x, y;
 
@@ -198,16 +138,10 @@ abstract public class BaseEnemy
         return new int[]{x, y};
     }
 
-    /**
-     * Set the next point the ship will move to.
-     */
     protected void setNextWaypoint() {
         currentWaypoint = new int[]{RandomUtils.nextInt(600) + 20, RandomUtils.nextInt(310) + 60};
     }
 
-    /**
-     * Set the next point the ship will move to.
-     */
     protected void setNextWaypointSmall() {
         int x, y;
         if (currentWaypoint[0] == -60) {
@@ -221,13 +155,6 @@ abstract public class BaseEnemy
         currentWaypoint = new int[]{x, y};
     }
 
-    /**
-     * Have we reached our current waypoint.
-     * <p/>
-     * If we get within a certain distance of our waypoint, we are there.
-     *
-     * @return true if we are within a certain distance of our current waypoint, false if not
-     */
     protected boolean reachedCurrentWaypoint() {
         int xDistance = Math.abs(((int) x) - currentWaypoint[0]);
         if (xDistance < EnemyShipConstants.WAYPOINT_VARIANCE) {
@@ -239,9 +166,6 @@ abstract public class BaseEnemy
         return false;
     }
 
-    /**
-     * Helper method to be used to initialise a small enemy.
-     */
     protected void initSmallEnemy() {
         width = EnemyShipConstants.SMALL_SHIP_WIDTH;
         height = EnemyShipConstants.SMALL_SHIP_HEIGHT;
@@ -267,9 +191,6 @@ abstract public class BaseEnemy
         });
     }
 
-    /**
-     * Helper method to be used to init a medium enemy.
-     */
     protected void initMediumEnemy() {
         width = EnemyShipConstants.MEDIUM_SHIP_WIDTH;
         height = EnemyShipConstants.MEDIUM_SHIP_HEIGHT;
@@ -348,9 +269,6 @@ abstract public class BaseEnemy
         gameEngine.getEventHandler().addEventIn(this, nextCheckInterval, event);
     }
 
-    /**
-     * Initialise common animation for enemy ships.
-     */
     public void initEnemyAnimation() {
         getSurface().selectAnimationFrame(frame);
         // set a looping event animate us
@@ -361,9 +279,6 @@ abstract public class BaseEnemy
         });
     }
 
-    /**
-     * Trigger the event chain that checks our progress towards the enemy waypoint.
-     */
     protected void initWaypointTracking() {
 
         gameEngine.getEventHandler().addEventIn(this, EnemyShipConstants.WAYPOINT_TRACK_TIME, new Event() {
@@ -373,9 +288,6 @@ abstract public class BaseEnemy
         });
     }
 
-    /**
-     * Trigger the event chain that checks our progress towards the enemy waypoint.
-     */
     protected void initWaypointTrackingSmall() {
 
         gameEngine.getEventHandler().addEventIn(this, EnemyShipConstants.WAYPOINT_TRACK_TIME + RandomUtils.nextFloat() * 10, new Event() {
@@ -385,11 +297,6 @@ abstract public class BaseEnemy
         });
     }
 
-    /**
-     * Check how we are tracking towards our waypoint.
-     * <p/>
-     * If we reach it, wait for a bit, then head to a new waypoint.
-     */
     private void checkWayPoint() {
 
         float nextTrackTime = EnemyShipConstants.WAYPOINT_TRACK_TIME;
@@ -424,11 +331,6 @@ abstract public class BaseEnemy
         });
     }
 
-    /**
-     * Check how we are tracking towards our waypoint.
-     * <p/>
-     * If we reach it, wait for a bit, then head to a new waypoint.
-     */
     private void checkWayPointSmall() {
 
         float nextTrackTime = EnemyShipConstants.WAYPOINT_TRACK_TIME;
@@ -456,14 +358,6 @@ abstract public class BaseEnemy
         });
     }
 
-    /**
-     * Cap the passed in speed to a constant max.
-     * <p/>
-     * The speed can be negative.
-     *
-     * @param v speed
-     * @return the speed capped to a maximum set by EnemyShipConstants.ENEMY_TOP_SPEED
-     */
     private float capSpeed(float v) {
         float sign = Math.signum(v);
 
@@ -476,11 +370,6 @@ abstract public class BaseEnemy
         return v;
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
 
         if (otherBody instanceof BasePlayerBullet) {
@@ -489,12 +378,6 @@ abstract public class BaseEnemy
         }
     }
 
-    /**
-     * Shoot a single bullet approximately where the player is at.
-     *
-     * @param xVariance how far from the player we should exactly shoot.
-     * @param yVariance how far from the player we should exactly shoot.
-     */
     public void shootWithModifyer(int xVariance, int yVariance) {
 
         if (offScreen()) {
@@ -512,16 +395,10 @@ abstract public class BaseEnemy
         gameEngine.addGameObject(bullet);
     }
 
-    /**
-     * Shoot a single bullet approximately where the player is at.
-     */
     public void shootSimple() {
         shootWithModifyer(RandomUtils.nextInt(180) - 90, RandomUtils.nextInt(180) - 90);
     }
 
-    /**
-     * Shoot a single bullet right where the player is at.
-     */
     public void shootStraightAtPlayer() {
         shootWithModifyer(0, 0);
     }

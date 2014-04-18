@@ -1,13 +1,5 @@
 package org.jgameengine.nineteenfourtysomething.initialiser;
 
-/**
- * So we don't repeat ourselves throughout source, the assets of the game are identified here.
- *
- * sounds
- * graphics
- * 
- * @author Owen Butler
- */
 public class AssetConstants {
 
     public static String gfx_cloud = "194x/cloud1.png";

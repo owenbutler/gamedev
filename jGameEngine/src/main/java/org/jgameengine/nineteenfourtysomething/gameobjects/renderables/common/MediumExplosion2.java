@@ -5,20 +5,9 @@ import org.jgameengine.common.events.Event;
 import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * medium explosion.
- *
- * @author Owen Butler
- */
 public class MediumExplosion2
         extends BaseDrawableGameObject {
 
-    /**
-     * create a medium explosion.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
     public MediumExplosion2(float x, float y) {
         super(AssetConstants.gfx_mediumExplosion, x, y, 32, 32);
 
@@ -43,9 +32,6 @@ public class MediumExplosion2
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

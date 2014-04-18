@@ -1,21 +1,11 @@
 package org.jgameengine.testgame.gameobjects.renderables;
 
 //import org.apache.log4j.Logger;
+
 import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 
-/**
- * Player ship used by the server of the test game.
- * <p/>
- * The server version is different to the client version because it can collide with things.
- * <p/>
- * User: Owen Butler
- * Date: 5/04/2005
- * Time: 21:26:56
- */
 public class ServerDronePlayerShip
         extends BaseDrawableGameObject {
-
-//    private static final Logger logger = Logger.getLogger(ServerDronePlayerShip.class.getName());
 
     private static final float SHIPVELOCITY = 200.0f;
 
@@ -42,9 +32,6 @@ public class ServerDronePlayerShip
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
     }
 

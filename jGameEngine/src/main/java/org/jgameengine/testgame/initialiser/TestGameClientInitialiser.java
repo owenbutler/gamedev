@@ -5,23 +5,11 @@ import org.jgameengine.engine.EngineInitialiser;
 import org.jgameengine.renderer.lwjgl.LWJGLTextureCache;
 import org.jgameengine.testgame.gameobjects.SpawnListener;
 
-/**
- * Adds the initial game objects that are appropriate for the client side of the testgame.
- * <p/>
- * User: Owen Butler
- * Date: 9/04/2005
- * Time: 01:42:03
- */
 public class TestGameClientInitialiser
         implements EngineInitialiser {
 
     private Engine engine;
 
-    /**
-     * called by the engine before the first frame.
-     * <p/>
-     * This is the spot where you would insert your custom game objects.
-     */
     public void initialiseGame() {
 
         // add our client side initial game objects
@@ -34,16 +22,10 @@ public class TestGameClientInitialiser
 //        makeMusicGoNow.playStream();
     }
 
-    /**
-     * Load any sounds before the first gameframe is ticked.
-     */
     public void soundPreLoad() {
 
     }
 
-    /**
-     * Load any graphics before the first frame is rendered.
-     */
     public void graphicsPreLoad() {
         LWJGLTextureCache.getTextureId("clouds/clouds.png");
         LWJGLTextureCache.getTextureId("playerBullet.png");

@@ -2,11 +2,6 @@ package org.jgameengine.testgame.network.packets;
 
 import java.io.Serializable;
 
-/**
- * User: Owen Butler
- * Date: 19/04/2005
- * Time: 23:14:39
- */
 public class PlayerLocationUpdatePacket
         implements Serializable {
 

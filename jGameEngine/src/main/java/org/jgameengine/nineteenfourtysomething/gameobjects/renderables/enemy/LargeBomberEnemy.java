@@ -6,9 +6,6 @@ import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.common.Sc
 public class LargeBomberEnemy
         extends LargeEnemy {
 
-    /**
-     * Constructor.
-     */
     public LargeBomberEnemy() {
         super();
 
@@ -19,18 +16,10 @@ public class LargeBomberEnemy
         getSurface().selectAnimationFrame(3);
     }
 
-    /**
-     * Derived enemy ships should do logic here.
-     */
     protected void enemyThink() {
 
     }
 
-    /**
-     * Entry point for enemies to give a bonus.
-     * <p/>
-     * By default, nothing happens.
-     */
     protected void giveBonus() {
         gameEngine.getScoreManager().addScore(new Score(x, y, Score.SCORE_1k));
     }

@@ -6,11 +6,6 @@ import org.jgameengine.engine.Engine;
 import org.jgameengine.nineteenfourtysomething.constants.GameConstants;
 import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.BackgroundCloud;
 
-/**
- * Class used to generate the pieces of background that fly past the game board.
- * 
- * @author Owen Butler
- */
 public class BackgroundGenerator {
 
     private Engine engine;
@@ -31,7 +26,7 @@ public class BackgroundGenerator {
     private void generateCloud() {
 
         int size = RandomUtils.nextInt(500) + 300;
-        
+
         BackgroundCloud cloud = new BackgroundCloud(RandomUtils.nextInt(640), -size);
         cloud.setWidth(size);
         cloud.setHeight(size);

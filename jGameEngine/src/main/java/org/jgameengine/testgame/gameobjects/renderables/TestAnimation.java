@@ -1,24 +1,13 @@
 package org.jgameengine.testgame.gameobjects.renderables;
 
-import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.common.events.Event;
+import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 
-/**
- * User: Owen Butler
- * Date: 11/04/2005
- * Time: 17:12:46
- */
 public class TestAnimation
         extends BaseDrawableGameObject {
 
     int frame = 0;
-    
-    /**
-     * create a new player bullet.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
+
     public TestAnimation(float x, float y) {
         super("animationTest2.png", x, y, 32, 32);
 //        setScreenClipRemove(true);
@@ -42,9 +31,6 @@ public class TestAnimation
         getSurface().selectAnimationFrame(++frame % 9);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

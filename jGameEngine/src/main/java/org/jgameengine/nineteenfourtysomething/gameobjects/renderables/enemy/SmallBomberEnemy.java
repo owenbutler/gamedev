@@ -9,9 +9,6 @@ import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 public class SmallBomberEnemy
         extends BaseEnemy {
 
-    /**
-     * create a new Small bomber enemy.
-     */
     public SmallBomberEnemy() {
         super();
 
@@ -37,11 +34,6 @@ public class SmallBomberEnemy
 
     }
 
-    /**
-     * Entry point for enemies to give a bonus.
-     * <p/>
-     * By default, nothing happens.
-     */
     protected void giveBonus() {
         gameEngine.getScoreManager().addScore(new Score(x, y, Score.SCORE_250));
     }

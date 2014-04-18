@@ -6,19 +6,7 @@ import org.jgameengine.common.events.Event;
 import org.jgameengine.common.gameobjects.GameObject;
 import org.jgameengine.engine.Engine;
 import org.jgameengine.engine.eventlistener.EngineEventListener;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.BaseEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.BlueEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.GoldEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.GreenEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.LargeBomberEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.LargeCamoEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.LightBlueEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.LightGreenEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.MediumGhostEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.MediumGreenEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.MediumWaterPlaneEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.SmallBomberEnemy;
-import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.WhiteEnemy;
+import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.*;
 
 public class WaveGenerator implements EngineEventListener {
 
@@ -106,19 +94,9 @@ public class WaveGenerator implements EngineEventListener {
         engine.getEventHandler().removeEventsForOwner(this);
     }
 
-    /**
-     * Hook for when gameobjects are added to the world.
-     *
-     * @param added the gameobject which was added
-     */
     public void gameObjectAdded(GameObject added) {
     }
 
-    /**
-     * Hook for when gameobjects are removed from the world.
-     *
-     * @param removed removed
-     */
     public void gameObjectRemoved(GameObject removed) {
         if (removed instanceof BaseEnemy) {
             --waveLiving;
@@ -127,15 +105,9 @@ public class WaveGenerator implements EngineEventListener {
         }
     }
 
-    /**
-     * Called just before a frame starts processing.
-     */
     public void frameStart() {
     }
 
-    /**
-     * Called just after a frame has finished processing.
-     */
     public void frameFinish() {
     }
 }

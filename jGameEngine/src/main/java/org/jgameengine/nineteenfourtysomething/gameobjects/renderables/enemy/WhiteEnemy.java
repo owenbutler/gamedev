@@ -9,9 +9,6 @@ import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 public class WhiteEnemy
         extends BaseEnemy {
 
-    /**
-     * create a new white enemy.
-     */
     public WhiteEnemy() {
         super();
 
@@ -42,11 +39,6 @@ public class WhiteEnemy
 
     }
 
-    /**
-     * Entry point for enemies to give a bonus.
-     * <p/>
-     * By default, nothing happens.
-     */
     protected void giveBonus() {
         gameEngine.getScoreManager().addScore(new Score(x, y, Score.SCORE_25));
     }

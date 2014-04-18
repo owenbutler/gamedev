@@ -5,22 +5,9 @@ import org.jgameengine.nineteenfourtysomething.constants.GameConstants;
 import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.BaseEnemy;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Straight shot player bullet.
- *
- * @author Owen Butler
- */
 public class PlayerBullet
         extends BasePlayerBullet {
 
-    /**
-     * create a new player bullet.
-     *
-     * @param x    x position
-     * @param y    y position
-     * @param xVel x velocity
-     * @param yVel y velocity
-     */
     public PlayerBullet(float x, float y, float xVel, float yVel) {
         super(x, y, xVel, yVel);
 
@@ -32,11 +19,6 @@ public class PlayerBullet
     }
 
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof BaseEnemy) {
             // spawn some sparks

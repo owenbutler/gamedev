@@ -4,20 +4,9 @@ import org.jgameengine.common.events.Event;
 import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Very Small explosion.
- *
- * @author Owen Butler
- */
 public class VerySmallExplosion
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new very small explosion.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
     public VerySmallExplosion(float x, float y) {
         super(AssetConstants.gfx_smallExplosion, x, y, 16, 16);
 
@@ -34,10 +23,6 @@ public class VerySmallExplosion
         setRandomRotation();
     }
 
-
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

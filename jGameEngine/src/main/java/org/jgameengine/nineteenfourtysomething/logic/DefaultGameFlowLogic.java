@@ -30,53 +30,24 @@ public class DefaultGameFlowLogic
 
     protected static final Logger logger = Logger.getLogger(DefaultGameFlowLogic.class);
 
-    /**
-     * Engine in use.
-     */
     private Engine engine;
 
-    /**
-     * The player.
-     */
     Player player;
 
-    /**
-     * Generator used to generate the waves of enemies.
-     */
     private WaveGenerator waveGenerator;
 
-    /**
-     * Used to generate background clouds.
-     */
     private BackgroundGenerator backgroundGenerator;
 
-    /**
-     * first run through the game.
-     */
     private boolean firstRun = true;
 
-    /**
-     * list of highscores in the game.
-     */
     private List<HighScore> highScores = new ArrayList<HighScore>(10);
 
-    /**
-     * Should we attempt to save highscores via webstart.
-     */
     private boolean attemptWebstartHighScores = true;
 
-    /**
-     * is the player dead already.
-     */
     private boolean playerDead = false;
 
     private int enemiesKilled;
 
-    /**
-     * Constructor.
-     *
-     * @param engine game engine in use
-     */
     public DefaultGameFlowLogic(Engine engine) {
         this.engine = engine;
     }
@@ -122,12 +93,6 @@ public class DefaultGameFlowLogic
 
     }
 
-    /**
-     * Called when the game initially loads.
-     * <p/>
-     * This will probably put up the high score/instruction/logo screen, and spawn a mouse listener to
-     * listen for the player requesting to start the game.
-     */
     public void gameLoads() {
 
         if (firstRun) {
@@ -277,11 +242,6 @@ public class DefaultGameFlowLogic
         hudManager.currentScoreMode();
     }
 
-    /**
-     * Called when the player dies.
-     * <p/>
-     * Buh bow, game over.
-     */
     public void playerDies() {
         if (playerDead) {
             return;

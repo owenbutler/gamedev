@@ -5,9 +5,6 @@ import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.common.Sc
 
 public class MediumWaterPlaneEnemy extends MediumEnemy {
 
-    /**
-     * Constructor.
-     */
     public MediumWaterPlaneEnemy() {
         super();
 
@@ -22,18 +19,10 @@ public class MediumWaterPlaneEnemy extends MediumEnemy {
         initEnemyAnimation();
     }
 
-    /**
-     * Derived enemy ships should do logic here.
-     */
     protected void enemyThink() {
 
     }
 
-    /**
-     * Entry point for enemies to give a bonus.
-     * <p/>
-     * By default, nothing happens.
-     */
     protected void giveBonus() {
 //        final int[] coinTypes = new int[] {Coin.TYPE_GOLD, Coin.TYPE_GREEN, Coin.TYPE_RED, Coin.TYPE_SILVER};
 

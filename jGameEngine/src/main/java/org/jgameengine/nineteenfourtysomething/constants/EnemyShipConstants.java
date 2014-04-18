@@ -2,63 +2,30 @@ package org.jgameengine.nineteenfourtysomething.constants;
 
 public class EnemyShipConstants {
 
-    /**
-     * Collision radius of small ship.
-     */
     public final static int SMALL_SHIP_COLLISION_RADIUS = 8;
 
-    /**
-     * Width/height of small ship.
-     */
     public final static int SMALL_SHIP_WIDTH = 32;
     public final static int SMALL_SHIP_HEIGHT = 32;
 
-    /**
-     * Collision radius of medium ship.
-     */
     public final static int MEDIUM_SHIP_COLLISION_RADIUS = 16;
 
-    /**
-     * Width/height of medium ship.
-     */
     public final static int MEDIUM_SHIP_WIDTH = 64;
     public final static int MEDIUM_SHIP_HEIGHT = 64;
 
-    /**
-     * Collision radius of medium ship.
-     */
     public final static int LARGE_SHIP_COLLISION_RADIUS = 23;
 
-    /**
-     * Width/height of medium ship.
-     */
     public final static int LARGE_SHIP_WIDTH = 128;
     public final static int LARGE_SHIP_HEIGHT = 128;
 
-    /**
-     * The default health of enemies.
-     */
     public static final int DEFAULT_HEALTH = 1;
 
-    /**
-     * How close you have to be to a waypoint to be considered "being there".
-     */
     public static final int WAYPOINT_VARIANCE = 40;
 
-    /**
-     * How often (in seconds) enemies track to waypints.
-     */
     public static final float WAYPOINT_TRACK_TIME = 0.1f;
 
-    /**
-     * Top speed captain.
-     */
     public static final float ENEMY_TOP_SPEED = 60.0f;
     public static final float SMALL_ENEMY_TOP_SPEED = 150.0f;
 
-    /**
-     * Enemy healths.
-     */
     public static final int HEALTH_GREEN = 1;
     public static final int HEALTH_WHITE = 1;
     public static final int HEALTH_LGREEN = 1;
@@ -72,18 +39,12 @@ public class EnemyShipConstants {
     public static final int HEALTH_LRGBOMBER = 25;
     public static final int HEALTH_LRGCAMO = 50;
 
-    /**
-     * How often the enemies shoot.
-     */
     public static final float GREEN_ENEMY_SHOOT_INTERVAL = 7.0f;
     public static final float LIGHT_GREEN_ENEMY_SHOOT_INTERVAL = 5.0f;
     public static final float GOLD_ENEMY_SHOOT_INTERVAL = 4.0f;
     public static final float LIGHT_BLUE_ENEMY_SHOOT_INTERVAL = 2.0f;
     public static final float SMALL_BOMBER_ENEMY_SHOOT_INTERVAL = 0.7f;
 
-    /**
-     * Bullet speed.
-     */
     public static final float SIMPLE_BULLET_SPEED = 130.0f;
 
     public static final int SHOOT_SEQUENCE_LONG = 0;

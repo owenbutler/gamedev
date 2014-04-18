@@ -8,11 +8,6 @@ import org.jgameengine.nineteenfourtysomething.logic.WarpManager;
 public class GameInitialiser
         extends EngineInitialiserSupport {
 
-    /**
-     * called by the engine before the first frame.
-     * <p/>
-     * This is the spot where you would insert your custom game objects.
-     */
     public void initialiseGame() {
 
         // register a hook into the special effects

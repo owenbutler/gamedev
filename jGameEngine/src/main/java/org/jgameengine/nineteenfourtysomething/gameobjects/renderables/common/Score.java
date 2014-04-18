@@ -5,11 +5,6 @@ import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.common.score.GenericScore;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * The score thing that pops out when you score.
- *
- * @author Owen Butler
- */
 public class Score
         extends BaseDrawableGameObject implements GenericScore {
 
@@ -29,14 +24,8 @@ public class Score
 
     private int scoreType;
 
-    private int[] typeToPoints = new int[] {10, 25, 50, 75, 100, 150, 250, 350, 500, 800, 1000, 2000, 5000};
-    /**
-     * create a new score
-     *
-     * @param x    x position
-     * @param y    y position
-     * @param type type of coin
-     */
+    private int[] typeToPoints = new int[]{10, 25, 50, 75, 100, 150, 250, 350, 500, 800, 1000, 2000, 5000};
+
     public Score(float x, float y, int type) {
         super(AssetConstants.gfx_scores, x, y, 24, 24);
         setScreenClipRemove(false);
@@ -54,19 +43,11 @@ public class Score
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
 
 
-    /**
-     * Get the amount of points this score is worth.
-     *
-     * @return the amount of points.
-     */
     public int getPoints() {
         return typeToPoints[scoreType];
     }

@@ -1,82 +1,37 @@
 package org.jgameengine.testgame.network;
 
-import org.jgameengine.engine.Engine;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.log4j.Logger;
 import org.jgameengine.common.events.Event;
+import org.jgameengine.engine.Engine;
 import org.jgameengine.network.NetworkPacketHandler;
 import org.jgameengine.testgame.gameobjects.renderables.ServerDronePlayerShip;
 import org.jgameengine.testgame.gameobjects.renderables.ServerPlayerBullet;
-import org.jgameengine.testgame.network.packets.JoinPacket;
-import org.jgameengine.testgame.network.packets.JoinResponsePacket;
-import org.jgameengine.testgame.network.packets.PlayerFirePacket;
-import org.jgameengine.testgame.network.packets.PlayerLocationUpdatePacket;
-import org.jgameengine.testgame.network.packets.RequestSpawnPacket;
-import org.jgameengine.testgame.network.packets.PlayerSpawnPacket;
-import org.jgameengine.testgame.network.packets.MissilePacket;
-import org.jgameengine.testgame.network.packets.WorldStatePacket;
-import org.jgameengine.testgame.network.packets.WorldStatePlayerObject;
-import org.jgameengine.testgame.network.packets.ClientLeftGamePacket;
-import org.jgameengine.testgame.network.packets.PlayerDamagePacket;
-import org.apache.log4j.Logger;
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.jgameengine.testgame.network.packets.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-/**
- * Server side packet handler for the testgame game.
- *
- * The class routes logic steps to a "game" logic controller.
- *
- * User: Owen Butler
- * Date: 1/05/2005
- * Time: 23:14:14
- */
 public class TestGameServerPacketHandler
         implements NetworkPacketHandler {
 
     private static final Logger logger = Logger.getLogger(TestGameServerPacketHandler.class.getName());
 
-    /**
-     * game engine.
-     */
     private Engine engine;
 
-    /**
-     * map used to associated connection id to name.
-     */
     private Map<Integer, String> connectionIdToName = new HashMap<Integer, String>();
 
-    /**
-     * map used to associate connection id to "ship".
-     */
     private Map<Integer, ServerDronePlayerShip> connectionIdToShip = new HashMap<Integer, ServerDronePlayerShip>();
 
-    /**
-     * map used to associate a "ship" to a connection id.
-     */
     private Map<ServerDronePlayerShip, Integer> shipToConnectionId = new HashMap<ServerDronePlayerShip, Integer>();
 
-    /**
-     * How often clients are updated of world state expressed as floating point seconds.
-     *
-     * eg.  0.02f is equal to 50 times per second
-     * eg.  0.1f  is equal to 10 times per second
-     */
     private float clientUpdateRate;
 
-    /**
-     * Damage per missile.
-     */
     private static final float MISSILE_DAMAGE = 1.0f;
 
 
-    /**
-     * initialise the packet handler.
-     *
-     * @param engine game engine we are running in
-     */
     public void initPacketHandler(Engine engine) {
         this.engine = engine;
 
@@ -89,11 +44,6 @@ public class TestGameServerPacketHandler
     }
 
 
-    /**
-     * called every xx ms to update clients with the state of the world.
-     * <p/>
-     * Loops through all the drones in the world, creating a WorldStatePacket.
-     */
     private void updateClientsWithWorldState() {
         // if we have no clients connected, don't bother sending the world state
         if (connectionIdToName.size() == 0) {
@@ -122,12 +72,6 @@ public class TestGameServerPacketHandler
     }
 
 
-    /**
-     * handle a packet.
-     *
-     * @param connectionId connection id the packet came from
-     * @param packet       the packet
-     */
     public void handlePacket(Integer connectionId, Object packet) {
 
         if (logger.isTraceEnabled()) {
@@ -146,9 +90,6 @@ public class TestGameServerPacketHandler
     }
 
 
-    /**
-     * Handle a disconnection by a client.
-     */
     public void handleDisconnection(Integer connectionId) {
 
         // A client disconnected so we should remove it from the server representation of the world
@@ -270,19 +211,13 @@ public class TestGameServerPacketHandler
     }
 
 
-    /**
-     * Called when a missile has collided with a player.
-     *
-     * @param missile the missile that hit
-     * @param player the player that the missile hit
-     */
     public void missileHitPlayer(ServerPlayerBullet missile, ServerDronePlayerShip player) {
 
         String missileOwnerName = connectionIdToName.get(missile.getConnectionOwner());
         String playerName = connectionIdToName.get(player.getConnectionOwner());
 
         logger.debug(missileOwnerName + " hit " + playerName + " with a missile");
-        
+
         engine.getNetworkDriver().sendPacketToAll(new PlayerDamagePacket(player.getConnectionOwner(), MISSILE_DAMAGE));
     }
 

@@ -9,7 +9,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.opengl.TextureImpl;
 
-import java.awt.Font;
+import java.awt.*;
 import java.io.BufferedInputStream;
 import java.util.List;
 
@@ -48,9 +48,6 @@ public class NineHudManager
         engine.registerGameService("hudManager", this);
     }
 
-    /**
-     * Render the HUD for this frame.
-     */
     public void renderHud() {
         TextureImpl.bindNone();
 

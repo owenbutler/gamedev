@@ -2,15 +2,6 @@ package org.jgameengine.testgame.gameobjects.renderables;
 
 import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 
-/**
- * Player ship used by the server of the test game.
- * <p/>
- * The server version is different to the client version because it can collide with things.
- * <p/>
- * User: Owen Butler
- * Date: 5/04/2005
- * Time: 21:26:56
- */
 public class ClientDronePlayerShip
         extends BaseDrawableGameObject {
 

@@ -8,11 +8,6 @@ import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.BasePlaye
 import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.enemy.BaseEnemy;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Missile fired by the player.
- *
- * @author Owen Butler
- */
 public class Missile
         extends BasePlayerBullet {
 
@@ -20,14 +15,6 @@ public class Missile
 
     private int fireFacingY;
 
-    /**
-     * create a new missile.
-     *
-     * @param x    x position
-     * @param y    y position
-     * @param facingX where the ship was facing when it fired the missile
-     * @param facingY where the ship was facing when it fired the missile
-     */
     public Missile(float x, float y, int facingX, int facingY) {
         super(x, y, 0, 0);
 
@@ -99,11 +86,6 @@ public class Missile
     }
 
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof BaseEnemy) {
             TransExplosion explosion = new TransExplosion(x, y);

@@ -7,11 +7,6 @@ import org.jgameengine.common.gameobjects.Collidable;
 import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.Player;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Coins!  Money!.
- *
- * @author Owen Butler
- */
 public class Coin
         extends BaseDrawableGameObject {
 
@@ -22,13 +17,6 @@ public class Coin
 
     protected Player player;
 
-    /**
-     * create a new coin.
-     *
-     * @param x    x position
-     * @param y    y position
-     * @param type type of coin
-     */
     public Coin(float x, float y, int type) {
         super(AssetConstants.gfx_coins, x, y, 16, 16);
         setScreenClipRemove(false);
@@ -76,19 +64,11 @@ public class Coin
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
 
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Player) {
             removeSelf();

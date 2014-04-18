@@ -1,22 +1,11 @@
 package org.jgameengine.testgame.gameobjects.renderables;
 
-import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.apache.commons.lang.math.RandomUtils;
+import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 
-/**
- * User: Owen Butler
- * Date: 11/04/2005
- * Time: 17:12:46
- */
 public class PlayerBulletTrail
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
     public PlayerBulletTrail(float x, float y) {
         super("clouds/clouds.png", x, y, 16, 16);
         setScreenClipRemove(true);
@@ -24,7 +13,7 @@ public class PlayerBulletTrail
         setRotation(RandomUtils.nextInt(255));
 
         final int rotationSpeed = 100;
-        setRotate(RandomUtils.nextInt(rotationSpeed)  - (rotationSpeed / 2));
+        setRotate(RandomUtils.nextInt(rotationSpeed) - (rotationSpeed / 2));
 
         setScale(40, 40);
 
@@ -32,9 +21,6 @@ public class PlayerBulletTrail
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

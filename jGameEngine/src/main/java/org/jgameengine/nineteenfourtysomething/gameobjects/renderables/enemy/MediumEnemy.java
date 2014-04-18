@@ -4,9 +4,6 @@ import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.common.Tr
 
 public class MediumEnemy extends BaseEnemy {
 
-    /**
-     * Derived enemy ships should do logic here.
-     */
     protected void enemyThink() {
 
     }

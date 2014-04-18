@@ -2,11 +2,6 @@ package org.jgameengine.testgame.network.packets;
 
 import java.io.Serializable;
 
-/**
- * User: Owen Butler
- * Date: 19/04/2005
- * Time: 23:12:22
- */
 public class PlayerSpawnPacket
         implements Serializable {
 

@@ -2,78 +2,39 @@ package org.jgameengine.testgame.network;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.log4j.Logger;
-import org.jgameengine.engine.Engine;
 import org.jgameengine.common.events.Event;
+import org.jgameengine.engine.Engine;
 import org.jgameengine.network.NetworkPacketHandler;
+import org.jgameengine.testgame.gameobjects.renderables.ClientDronePlayerShip;
 import org.jgameengine.testgame.gameobjects.renderables.ControllablePlayerShip;
 import org.jgameengine.testgame.gameobjects.renderables.PlayerBullet;
-import org.jgameengine.testgame.gameobjects.renderables.ClientDronePlayerShip;
-import org.jgameengine.testgame.network.packets.JoinResponsePacket;
-import org.jgameengine.testgame.network.packets.PlayerLocationUpdatePacket;
-import org.jgameengine.testgame.network.packets.PlayerSpawnPacket;
-import org.jgameengine.testgame.network.packets.WorldStatePacket;
-import org.jgameengine.testgame.network.packets.WorldStatePlayerObject;
-import org.jgameengine.testgame.network.packets.MissilePacket;
-import org.jgameengine.testgame.network.packets.ClientLeftGamePacket;
-import org.jgameengine.testgame.network.packets.PlayerDamagePacket;
+import org.jgameengine.testgame.network.packets.*;
 
-import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-/**
- * Handles client packets.
- * <p/>
- * Triggers game logic when appropriate.
- * <p/>
- * User: Owen Butler
- * Date: 31/05/2005
- * Time: 17:28:45
- */
 public class TestGameClientPacketHandler
         implements NetworkPacketHandler {
 
     private static final Logger logger = Logger.getLogger(TestGameClientPacketHandler.class.getName());
 
-    /**
-     * game engine.
-     */
     private Engine engine;
 
     private ControllablePlayerShip ship;
 
     private int connectionId;
 
-    /**
-     * How often this client updates the server with it's position.
-     * <p/>
-     * eg.  0.02f is equal to 50 times per second
-     * eg.  0.1f  is equal to 10 times per second
-     */
     private float serverUpdateRate;
 
-    /**
-     * map used to associate connection id to "ship".
-     */
     private Map<Integer, ClientDronePlayerShip> connectionIdToShip = new HashMap<Integer, ClientDronePlayerShip>();
 
 
-    /**
-     * initialise the packet handler.
-     *
-     * @param engine game engine we are running in
-     */
     public void initPacketHandler(Engine engine) {
         this.engine = engine;
     }
 
 
-    /**
-     * handle a packet.
-     *
-     * @param connectionId connection id the packet came from
-     * @param packet       the packet
-     */
     public void handlePacket(Integer connectionId, Object packet) {
 
         if (logger.isTraceEnabled()) {
@@ -109,11 +70,6 @@ public class TestGameClientPacketHandler
     }
 
 
-    /**
-     * The server has notified us that another client has left the game.
-     *
-     * @param clientLeftGamePacket the packet sent from the server to indicate a client has left the game
-     */
     private void handleClientLeftGame(ClientLeftGamePacket clientLeftGamePacket) {
 
         // try to find the drone render that corresponds to this client and remove it from
@@ -125,9 +81,6 @@ public class TestGameClientPacketHandler
     }
 
 
-    /**
-     * Handle a disconnection by a client.
-     */
     public void handleDisconnection(Integer connectionId) {
         throw new RuntimeException("not implemented");
     }
@@ -178,11 +131,6 @@ public class TestGameClientPacketHandler
     }
 
 
-    /**
-     * A missile has been fired.
-     *
-     * @param missilePacket the missile
-     */
     private void handleMissile(MissilePacket missilePacket) {
         // check whether the missile is ours, and ignore if so
         if (missilePacket.getId() == connectionId) {
@@ -230,7 +178,6 @@ public class TestGameClientPacketHandler
             logger.debug("WE GOT HIT!!");
         }
     }
-
 
 
     private void updateServerWithClientPosition() {

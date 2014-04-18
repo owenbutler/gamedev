@@ -5,9 +5,6 @@ import org.jgameengine.common.score.DefaultScoreManager;
 public class XXXScoreManager
         extends DefaultScoreManager {
 
-    /**
-     * Init the score manager.
-     */
     public void initScore() {
         super.initScore();
     }

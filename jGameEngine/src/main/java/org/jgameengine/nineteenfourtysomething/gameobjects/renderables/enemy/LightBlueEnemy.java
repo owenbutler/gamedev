@@ -9,9 +9,6 @@ import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 public class LightBlueEnemy
         extends BaseEnemy {
 
-    /**
-     * create a new light blue enemy.
-     */
     public LightBlueEnemy() {
         super();
 
@@ -41,11 +38,6 @@ public class LightBlueEnemy
 
     }
 
-    /**
-     * Entry point for enemies to give a bonus.
-     * <p/>
-     * By default, nothing happens.
-     */
     protected void giveBonus() {
         gameEngine.getScoreManager().addScore(new Score(x, y, Score.SCORE_150));
     }

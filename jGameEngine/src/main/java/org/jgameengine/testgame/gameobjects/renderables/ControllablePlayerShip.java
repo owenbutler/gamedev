@@ -4,11 +4,6 @@ import org.jgameengine.common.gameobjects.BaseControllableDrawableGameObject;
 import org.jgameengine.input.MouseListener;
 import org.jgameengine.testgame.network.packets.PlayerFirePacket;
 
-/**
- * User: Owen Butler
- * Date: 5/04/2005
- * Time: 21:26:56
- */
 public class ControllablePlayerShip
         extends BaseControllableDrawableGameObject
         implements MouseListener {
@@ -36,13 +31,10 @@ public class ControllablePlayerShip
         setScreenClipRemove(false);
 
         setCollidable(true);
-        setCollisionRadius(10.0f);        
+        setCollisionRadius(10.0f);
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
 
@@ -56,9 +48,6 @@ public class ControllablePlayerShip
     }
 
 
-    /**
-     * Fire!
-     */
     private void fire() {
         float[] bulletVel = getVelocityFacing(facingX, facingY, 300.0f);
 

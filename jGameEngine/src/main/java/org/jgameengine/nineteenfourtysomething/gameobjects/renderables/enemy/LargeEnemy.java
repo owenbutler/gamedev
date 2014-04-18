@@ -6,26 +6,13 @@ import org.jgameengine.nineteenfourtysomething.constants.EnemyShipConstants;
 import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.common.TransExplosion;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Common large enemy functionality.
- *
- * @author Owen Butler
- */
 public class LargeEnemy
         extends BaseEnemy {
 
-    /**
-     * Derived enemy ships should do logic here.
-     */
     protected void enemyThink() {
 
     }
 
-    /**
-     * Entry point for enemies to explode.
-     * <p/>
-     * By default, we spawn a medium explosion.
-     */
     protected void explode() {
 
         for (int i = 0; i < 6; ++i) {
@@ -41,9 +28,6 @@ public class LargeEnemy
         spawnDebri();
     }
 
-    /**
-     * Helper method to be used to init a large enemy.
-     */
     protected void initLargeEnemy() {
         width = EnemyShipConstants.LARGE_SHIP_WIDTH;
         height = EnemyShipConstants.LARGE_SHIP_HEIGHT;
@@ -59,9 +43,6 @@ public class LargeEnemy
         initLargeEnemyShooting();
     }
 
-    /**
-     * Initialise how the large enemy shoots.
-     */
     protected void initLargeEnemyShooting() {
 
         shootSequenceType = RandomUtils.nextInt(3);
@@ -77,11 +58,6 @@ public class LargeEnemy
 
     }
 
-    /**
-     * Check whether the large enemy should shoot.
-     * <p/>
-     * This method is currently only called by periodic events set up either inside it, or inside the init.
-     */
     protected void checkLargeEnemyShoot() {
 
         float time = gameEngine.getCurrentTime();

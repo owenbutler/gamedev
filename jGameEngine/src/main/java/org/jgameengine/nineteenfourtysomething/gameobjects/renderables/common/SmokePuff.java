@@ -5,20 +5,9 @@ import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.nineteenfourtysomething.constants.GameConstants;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Small puff of smoke.
- *
- * @author Owen Butler
- */
 public class SmokePuff
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new small puff of smoke.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
     public SmokePuff(float x, float y) {
         super(AssetConstants.gfx_smokePuff, x, y, 16, 16);
 
@@ -34,13 +23,10 @@ public class SmokePuff
 
         setRandomRotation();
 
-        setSortZ(GameConstants.Z_EXPLOSION_SMOKE);        
+        setSortZ(GameConstants.Z_EXPLOSION_SMOKE);
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

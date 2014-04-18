@@ -2,16 +2,9 @@ package org.jgameengine.testgame.gameobjects;
 
 import org.apache.log4j.Logger;
 import org.jgameengine.engine.Engine;
-import org.jgameengine.testgame.network.packets.RequestSpawnPacket;
 import org.jgameengine.input.MouseListener;
+import org.jgameengine.testgame.network.packets.RequestSpawnPacket;
 
-/**
- * Listens for mouse events to spawn the player in the gameworld.
- *
- * User: Owen Butler
- * Date: 4/08/2005
- * Time: 23:22:16
- */
 public class SpawnListener implements MouseListener {
 
     private static final Logger logger = Logger.getLogger(SpawnListener.class.getName());

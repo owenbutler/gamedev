@@ -6,13 +6,6 @@ import org.jgameengine.nineteenfourtysomething.constants.GameConstants;
 import org.jgameengine.nineteenfourtysomething.gameobjects.renderables.Player;
 import org.jgameengine.nineteenfourtysomething.initialiser.AssetConstants;
 
-/**
- * Powerup that spawns and slowly drifts to the bottom of the screen.
- *
- * The powerup upgrades one of 3 things:  Missles, straight shot or wide shot.
- *
- * @author Owen Butler
- */
 public class Powerup
         extends BaseDrawableGameObject194x {
 
@@ -74,9 +67,6 @@ public class Powerup
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
@@ -96,11 +86,6 @@ public class Powerup
     }
 
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Player) {
 
