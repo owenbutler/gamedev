@@ -9,12 +9,6 @@ public class ReboundBullet
 
     int score;
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public ReboundBullet(float x, float y) {
         super(AssetConstants.gfx_reboundBullet, x, y, 8, 8);
         setScreenClipRemove(true);
@@ -24,18 +18,10 @@ public class ReboundBullet
 
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Enemy) {
             removeSelf();

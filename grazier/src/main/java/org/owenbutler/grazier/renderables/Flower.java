@@ -7,12 +7,6 @@ import org.owenbutler.grazier.constants.AssetConstants;
 public class Flower
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Flower(float x, float y) {
         super(AssetConstants.gfx_enemyDebri, x, y, 128, 128);
 
@@ -28,9 +22,6 @@ public class Flower
         setSortZ(AssetConstants.z_flower);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

@@ -20,12 +20,6 @@ public class Player
 
     protected boolean dead;
 
-    /**
-     * constructor.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Player(float x, float y) {
         super(AssetConstants.gfx_player, x, y, GameConstants.PLAYER_WIDTH, GameConstants.PLAYER_HEIGHT);
 
@@ -64,9 +58,6 @@ public class Player
         }
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         if (dead) {

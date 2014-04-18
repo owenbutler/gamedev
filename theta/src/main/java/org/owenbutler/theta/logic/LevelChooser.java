@@ -4,9 +4,6 @@ import org.jgameengine.engine.Engine;
 import org.jgameengine.input.MouseListener;
 import org.jgameengine.renderer.HudCallback;
 
-/**
- * Logic to determine which level to start the game on.
- */
 public class LevelChooser implements MouseListener, HudCallback {
 
     private Engine engine;

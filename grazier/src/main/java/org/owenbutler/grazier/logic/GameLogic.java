@@ -208,17 +208,11 @@ public class GameLogic implements MouseListener, PauseListener {
 
     }
 
-    /**
-     * Pause requested.
-     */
     public void pause() {
 
         engine.pause();
     }
 
-    /**
-     * The opposite of pause.
-     */
     public void unPause() {
 
         engine.unPause();

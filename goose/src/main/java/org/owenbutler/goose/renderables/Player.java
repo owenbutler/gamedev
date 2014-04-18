@@ -64,9 +64,6 @@ public class Player extends BaseControllableDrawableGameObject implements MouseL
         gameEngine.addGameObject(bullet);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         baseDrawableThink();

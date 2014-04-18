@@ -10,11 +10,6 @@ import org.owenbutler.warpball.renderables.PlayerPaddle;
 public class WarpballInitialiser
         extends EngineInitialiserSupport {
 
-    /**
-     * called by the engine before the first frame.
-     * <p/>
-     * This is the spot where you would insert your custom game objects.
-     */
     public void initialiseGame() {
 
         engine.addGameObject(new Background());

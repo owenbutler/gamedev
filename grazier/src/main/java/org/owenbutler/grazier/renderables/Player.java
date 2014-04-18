@@ -143,9 +143,6 @@ public class Player extends BaseControllableDrawableGameObject implements MouseL
         gameEngine.addGameObject(playerBullet);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         ++numFrames;
@@ -156,11 +153,6 @@ public class Player extends BaseControllableDrawableGameObject implements MouseL
         baseDrawableThink();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
 
 //        if (dead) {

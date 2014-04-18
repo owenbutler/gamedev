@@ -50,11 +50,6 @@ public abstract class BaseAsteroid
 
     abstract protected void killed();
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
 
         if (otherBody instanceof Player) {

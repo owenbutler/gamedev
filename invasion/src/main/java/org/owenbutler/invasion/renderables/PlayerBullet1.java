@@ -8,12 +8,6 @@ import org.owenbutler.invasion.constants.AssetConstants;
 public class PlayerBullet1
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public PlayerBullet1(float x, float y) {
         super(AssetConstants.gfx_playerBullet, x, y, 16, 16);
         setScreenClipRemove(true);
@@ -34,18 +28,10 @@ public class PlayerBullet1
         gameEngine.addGameObject(particle);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Enemy) {
             removeSelf();

@@ -6,12 +6,6 @@ import org.owenbutler.grazier.constants.AssetConstants;
 public class Rainbow
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Rainbow(float x, float y) {
         super(AssetConstants.gfx_rainbow, 400, 300, 800, 600);
 
@@ -22,9 +16,6 @@ public class Rainbow
         setFadeAndRemove(0.3f);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

@@ -62,9 +62,6 @@ public class Wingman extends BaseDrawableGameObject {
     // is this guy idling
     protected boolean idling;
 
-    /**
-     * constructor.
-     */
     public Wingman() {
         super(AssetConstants.gfx_player, 0, 0, 32, 32);
 
@@ -100,14 +97,6 @@ public class Wingman extends BaseDrawableGameObject {
         gameEngine.addGameObject(wingmanSensor);
     }
 
-    /**
-     * Check our current situation and plan reactions.
-     * <p/>
-     * This method is intended to be called periodically, perhaps 10 times a second.
-     * <p/>
-     * The method will take stock of what is happening in the game world, prioritise the list and make a choice
-     * as to what the next action should be.
-     */
     protected void checkSituation() {
 
         // check whether there are bullets in our close proximity
@@ -147,11 +136,6 @@ public class Wingman extends BaseDrawableGameObject {
         wingmenWithinRadius.clear();
     }
 
-    /**
-     * Check whether there are any friendly characters above us.
-     *
-     * @return true if there are no friendlies above us, false if it can be said that there are friendlies above
-     */
     private boolean noFriendliesAbove() {
 
         int xRange = GameConstants.WINGMAN_AI_X_RANGE_ABOVE_CHECK;
@@ -179,21 +163,11 @@ public class Wingman extends BaseDrawableGameObject {
         return true;
     }
 
-    /**
-     * Are there enemies in the sky above.
-     *
-     * @return true if there are enemies in the sky above, false if not
-     */
     private boolean bogiesAbove() {
 
         return game.bogiesAbovePosition(x);
     }
 
-    /**
-     * Move away from other wingmen.
-     * <p/>
-     * Move away and down/up.
-     */
     private void evasiveAction() {
         evasiveAction = true;
 
@@ -215,57 +189,26 @@ public class Wingman extends BaseDrawableGameObject {
         }
     }
 
-    /**
-     * Are there wingmen too close?
-     * <p/>
-     * This method also logs where the latest wingmen was detected, left or right.  This info is used as a hint where
-     * the wingman should take evasive action next.
-     * <p/>
-     * Should also note if wingmen are above/below.
-     *
-     * @return true if wingmen are too close, false if not
-     */
     private boolean wingmenTooClose() {
         return wingmenWithinRadius.size() != 0;
     }
 
-    /**
-     * Move back and randomly to the side to try to create a gap through the bullets.
-     */
     private void moveBackToCreateBulletDodge() {
 
     }
 
-    /**
-     * take evasive action against the current enemy bullets in proximity.
-     */
     private void dodgeBullets() {
 
     }
 
-    /**
-     * Is a dodge of the current bullets possible.
-     *
-     * @return true if we think we can dodge the current bullets that are in close proximity, false if not
-     */
     private boolean dodgePossible() {
         return false;
     }
 
-    /**
-     * Check whether there are enemy bullets in close proximity.
-     *
-     * @return true if there are enemy bullets in close proximity, false if not
-     */
     private boolean bulletsInProximity() {
         return false;
     }
 
-    /**
-     * Check movement.
-     * <p/>
-     * Check to see whether we should be heading towards our set waypoint.
-     */
     private void checkMovement() {
 
         if (evasiveAction) {
@@ -311,11 +254,6 @@ public class Wingman extends BaseDrawableGameObject {
         idling = !headingToWayPointX || !headingToWayPointY;
     }
 
-    /**
-     * Are we close to the x waypoint.
-     *
-     * @return true if we are close enough to our x waypoint, false if not
-     */
     private boolean closeToX() {
         float xLeftBound = wayPointX - waypointErrorVar;
         float xRightBound = wayPointX + waypointErrorVar;
@@ -323,11 +261,6 @@ public class Wingman extends BaseDrawableGameObject {
         return x > xLeftBound && x < xRightBound;
     }
 
-    /**
-     * Are we close to the y waypoint.
-     *
-     * @return true if we are close enough to the y waypoint, false if not
-     */
     private boolean closeToY() {
         float yUpBound = wayPointY - waypointErrorVar;
         float yDownBound = wayPointY + waypointErrorVar;
@@ -335,9 +268,6 @@ public class Wingman extends BaseDrawableGameObject {
         return y > yUpBound && y < yDownBound;
     }
 
-    /**
-     * So some idle movement on the x axis.
-     */
     private void idleMovementX() {
 
         velX = idleMovements[idleMovementIndexX++][0];
@@ -346,9 +276,6 @@ public class Wingman extends BaseDrawableGameObject {
 
     }
 
-    /**
-     * Do some idle movement on the y axis.
-     */
     private void idleMovementY() {
 
         velY = idleMovements[idleMovementIndexY++][1];
@@ -357,9 +284,6 @@ public class Wingman extends BaseDrawableGameObject {
 
     }
 
-    /**
-     * Set our initial spawn point.
-     */
     private void setSpawnPoint() {
 
         float spawnY;
@@ -370,9 +294,6 @@ public class Wingman extends BaseDrawableGameObject {
         y = spawnY;
     }
 
-    /**
-     * Check whether we should fire.
-     */
     private void checkPlayerFire() {
 
         if (dead) {
@@ -384,9 +305,6 @@ public class Wingman extends BaseDrawableGameObject {
         }
     }
 
-    /**
-     * Fire a bullet.
-     */
     private void fire() {
 
         float bulletX = x + (RandomUtils.nextInt(20) - 10);
@@ -395,21 +313,10 @@ public class Wingman extends BaseDrawableGameObject {
         gameEngine.addGameObject(bullet);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
 
-    /**
-     * Move.
-     * <p/>
-     * This method takes into account the special case where 8 way joystick movement is wanted.
-     * <p/>
-     * If both directions are pressed, the diagonal velocity is approximated, rather than applying both horizontal and
-     * vertical velocity.
-     */
     public void move() {
 
         float tVelX = velX;
@@ -439,11 +346,6 @@ public class Wingman extends BaseDrawableGameObject {
         this.wingMen = wingMen;
     }
 
-    /**
-     * Set the point at which this wingman will idle at.
-     *
-     * @param num index of wingman
-     */
     public void setIdlePoint(int num) {
 
         int modifier = 1;

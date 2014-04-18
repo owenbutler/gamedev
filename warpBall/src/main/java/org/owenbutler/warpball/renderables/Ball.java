@@ -7,11 +7,6 @@ import org.owenbutler.warpball.constants.AssetConstants;
 import org.owenbutler.warpball.constants.GameConstants;
 import org.owenbutler.warpball.logic.WarpBallLogic;
 
-/**
- * The ball in our ponglike game.
- *
- * @author Owen Butler
- */
 public class Ball
         extends BaseDrawableGameObject {
 

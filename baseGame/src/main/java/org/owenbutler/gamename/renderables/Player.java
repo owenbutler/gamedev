@@ -26,9 +26,6 @@ public class Player extends BaseControllableDrawableGameObject implements MouseL
         game = (GameLogic) gameEngine.getRegisteredGameService("game");
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         baseDrawableThink();

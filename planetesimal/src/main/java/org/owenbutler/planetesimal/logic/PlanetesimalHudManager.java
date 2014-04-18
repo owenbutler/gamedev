@@ -18,9 +18,6 @@ public class PlanetesimalHudManager
 
     protected boolean showScore;
 
-    /**
-     * Render the HUD for this frame.
-     */
     public void doRenderHud() {
 
         if (showIntroScreen) {
@@ -35,9 +32,6 @@ public class PlanetesimalHudManager
         }
     }
 
-    /**
-     * Draw the text of the intro screen.
-     */
     private void drawIntroScreen() {
 
         trueTypeFont.drawString(50, 50, "Welcome to planetesimal");

@@ -8,12 +8,6 @@ import org.owenbutler.grazier.constants.AssetConstants;
 public class EnemyDebri
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public EnemyDebri(float x, float y) {
         super(AssetConstants.gfx_enemyDebri, x, y, 16, 8);
 
@@ -26,18 +20,10 @@ public class EnemyDebri
         setSortZ(AssetConstants.z_enemyDebri);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Enemy1) {
             removeSelf();

@@ -156,27 +156,14 @@ public class GameLogic implements MouseListener, PauseListener {
 
     }
 
-    /**
-     * Pause requested.
-     */
     public void pause() {
         engine.pause();
     }
 
-    /**
-     * The opposite of pause.
-     */
     public void unPause() {
         engine.unPause();
     }
 
-    /**
-     * an enemy has moved.
-     * <p/>
-     * we keep a time based record of where enemies have been, so that wingmen can query to see if they need to shoot.
-     *
-     * @param x new x position of the enemy
-     */
     public void updateEnemyPosition(float x) {
 
         int index = ((int) x) / numQuadrants;
@@ -187,13 +174,6 @@ public class GameLogic implements MouseListener, PauseListener {
     final int numQuadrants = 100;
     float[] enemyPositionTimes = new float[numQuadrants];
 
-    /**
-     * fade out the enemy movement array.
-     * <p/>
-     * Iterate over the enemy movement array.
-     * <p/>
-     * Set the value to 0 if the time elapsed is greater than a threshhold.
-     */
     private void fadeEnemyMovement() {
 
         float currentTime = engine.getCurrentTime();

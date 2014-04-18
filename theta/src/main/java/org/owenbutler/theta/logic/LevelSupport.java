@@ -26,12 +26,6 @@ public abstract class LevelSupport implements Level {
 
     protected boolean levelStarted;
 
-    /**
-     * Shortcut for adding an event in a certain time.
-     *
-     * @param time     time to add event
-     * @param newEvent event to fire at that time
-     */
     public void in(float time, Event newEvent) {
 
         gameEngine.getEventHandler().addEventIn(this, time, newEvent);
@@ -99,11 +93,6 @@ public abstract class LevelSupport implements Level {
         spawnEnemy4(false);
     }
 
-    /**
-     * Add an enemy to the world and keep track of it.
-     *
-     * @param largeEnemy the enemy to add
-     */
     protected void addAndTrackEnemy(AbstractEnemyBase largeEnemy) {
 
         // add this largeEnemy to a list that we might use later

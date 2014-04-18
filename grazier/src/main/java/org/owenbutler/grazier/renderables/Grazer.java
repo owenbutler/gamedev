@@ -11,12 +11,6 @@ public class Grazer
 
     protected boolean enabled;
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Grazer(float x, float y) {
         super(AssetConstants.gfx_grazer, x, y, 90, 90);
 
@@ -28,9 +22,6 @@ public class Grazer
         player = (Player) gameEngine.getRegisteredGameService("player");
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         x = player.getX();
@@ -39,11 +30,6 @@ public class Grazer
         baseDrawableThink();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof EnemyBullet) {
 

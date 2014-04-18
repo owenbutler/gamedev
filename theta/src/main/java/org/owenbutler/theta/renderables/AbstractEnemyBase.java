@@ -3,9 +3,6 @@ package org.owenbutler.theta.renderables;
 import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.jgameengine.common.gameobjects.Collidable;
 
-/**
- * Abstract enemy base class so all enemies can be identified.
- */
 public abstract class AbstractEnemyBase extends BaseDrawableGameObject {
 
     protected boolean dead;
@@ -21,11 +18,6 @@ public abstract class AbstractEnemyBase extends BaseDrawableGameObject {
         player = (Player) gameEngine.getRegisteredGameService("player");
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof PlayerBullet) {
             takeDamage((PlayerBullet) otherBody);

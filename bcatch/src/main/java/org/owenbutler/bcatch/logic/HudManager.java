@@ -11,9 +11,6 @@ public class HudManager extends HudManagerSupport {
 
     String score = "0";
 
-    /**
-     * Render the HUD for this frame.
-     */
     public void doRenderHud() {
 
         if (showingIntroScreen) {

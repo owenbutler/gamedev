@@ -7,12 +7,6 @@ import org.owenbutler.invasion.constants.AssetConstants;
 public class BaseBrick
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new base Brick.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public BaseBrick(float x, float y) {
         super(AssetConstants.gfx_baseBrick, x, y, 16, 16);
         setScreenClipRemove(false);
@@ -23,9 +17,6 @@ public class BaseBrick
         setRandomRotation();
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 //        baseDrawableThink();
     }
@@ -40,11 +31,6 @@ public class BaseBrick
 
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof BaseBrick) {
             return;

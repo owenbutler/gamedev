@@ -3,9 +3,6 @@ package org.owenbutler.theta.renderables;
 import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.owenbutler.theta.constants.AssetConstants;
 
-/**
- * A wave that extends when the player gets hit, clearing bullets and small things.
- */
 public class PlayerHitWave extends BaseDrawableGameObject {
 
     public PlayerHitWave(float x, float y) {

@@ -7,12 +7,6 @@ import org.owenbutler.planetesimal.constants.AssetConstants;
 public class Asteroid3
         extends BaseAsteroid {
 
-    /**
-     * create a new debri.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Asteroid3(float x, float y) {
         super(AssetConstants.gfx_debri1, x, y, 16, 16);
 
@@ -42,9 +36,6 @@ public class Asteroid3
 
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

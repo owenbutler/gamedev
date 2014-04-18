@@ -2,11 +2,6 @@ package org.owenbutler.JGE_ARTIFACT_ID.initialiser;
 
 import org.jgameengine.launcher.EngineLauncher;
 
-/**
- * Launcher for JGE_ARTIFACT_ID game.
- *
- * @author Owen Butler
- */
 public class GameLauncher {
 
     public static void main(String[] args) {

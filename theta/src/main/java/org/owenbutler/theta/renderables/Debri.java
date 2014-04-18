@@ -7,12 +7,6 @@ import org.owenbutler.theta.constants.AssetConstants;
 public class Debri
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new debri.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Debri(float x, float y) {
         super(AssetConstants.gfx_debri1, x, y, 2, 8);
         setScreenClipRemove(true);
@@ -37,9 +31,6 @@ public class Debri
         setFadeAndRemove(1.0f);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

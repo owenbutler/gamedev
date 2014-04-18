@@ -7,12 +7,6 @@ import org.owenbutler.planetesimal.constants.GameConstants;
 public class Particle
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Particle(float x, float y) {
         super(AssetConstants.gfx_particle, x, y, 1, 1);
         setScreenClipRemove(true);
@@ -24,9 +18,6 @@ public class Particle
         setSortZ(GameConstants.Z_PARTICLE);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

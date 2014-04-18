@@ -32,9 +32,6 @@ public class ClientDronePlayerShip
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
     }
 

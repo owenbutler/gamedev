@@ -5,11 +5,6 @@ import org.jgameengine.input.MouseListener;
 import org.owenbutler.warpball.constants.AssetConstants;
 import org.owenbutler.warpball.logic.WarpBallLogic;
 
-/**
- * The paddle in our ponglike game.
- *
- * @author Owen Butler
- */
 public class PlayerPaddle
         extends BaseControllableDrawableGameObject
         implements MouseListener {
@@ -17,20 +12,11 @@ public class PlayerPaddle
     protected int mouseX;
     protected int mouseY;
 
-    /**
-     * constructor.
-     *
-     * @param x           x position
-     * @param y           y position
-     */
     public PlayerPaddle(float x, float y) {
         super(AssetConstants.gfx_paddle, x, y, 32, 128);
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         setY(clipMouseY());

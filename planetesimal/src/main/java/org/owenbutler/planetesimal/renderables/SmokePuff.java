@@ -8,12 +8,6 @@ import org.owenbutler.planetesimal.constants.GameConstants;
 public class SmokePuff
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new small puff of smoke.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public SmokePuff(float x, float y) {
         super(AssetConstants.gfx_smokePuff, x, y, 16, 16);
 
@@ -32,9 +26,6 @@ public class SmokePuff
         setSortZ(GameConstants.Z_EXPLOSION_SMOKE);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

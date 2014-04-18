@@ -3,9 +3,6 @@ package org.owenbutler.theta.renderables;
 import org.owenbutler.theta.constants.AssetConstants;
 import org.owenbutler.theta.constants.GameConstants;
 
-/**
- * A small homing enemy.
- */
 public class SmallHomingEnemy extends AbstractEnemyBase {
 
     protected Player player;

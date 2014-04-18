@@ -16,9 +16,6 @@ public class Enemy1 extends BaseDrawableGameObject {
 
     protected Player player;
 
-    /**
-     * constructor.
-     */
     public Enemy1() {
         super(AssetConstants.gfx_enemy, 0, 0, 128.0f, 128.0f);
 
@@ -237,9 +234,6 @@ public class Enemy1 extends BaseDrawableGameObject {
 //        });
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
 
@@ -252,11 +246,6 @@ public class Enemy1 extends BaseDrawableGameObject {
         }
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
 
         if (otherBody instanceof PlayerBullet) {

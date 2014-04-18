@@ -5,13 +5,6 @@ import org.owenbutler.theta.constants.AssetConstants;
 public class Enemy3
         extends LargeEnemySupport {
 
-    /**
-     * create a new enemy.
-     *
-     * @param x        x position
-     * @param y        y position
-     * @param bossmode whether this is a bossmode enemy
-     */
     public Enemy3(float x, float y, boolean bossmode) {
         super(AssetConstants.gfx_enemy3, x, y, 64, 64);
         setScreenClipRemove(false);

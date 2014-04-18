@@ -242,16 +242,10 @@ public class GameLogic implements PauseListener, LevelEndListener {
         }
     }
 
-    /**
-     * Pause requested.
-     */
     public void pause() {
         engine.pause();
     }
 
-    /**
-     * The opposite of pause.
-     */
     public void unPause() {
         engine.unPause();
     }

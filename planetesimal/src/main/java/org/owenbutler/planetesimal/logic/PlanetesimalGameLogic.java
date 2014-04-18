@@ -22,18 +22,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Defines the major stages that the game goes through.
- * <p/>
- * EG:
- * <p/>
- * Game starts
- * Game ends
- * Show intro screen
- * etc..
- *
- * @author Owen Butler
- */
 public class PlanetesimalGameLogic implements MouseListener {
 
     protected Engine engine;
@@ -52,11 +40,6 @@ public class PlanetesimalGameLogic implements MouseListener {
     private int livingAsteroids;
 
 
-    /**
-     * Constructor.
-     *
-     * @param engine game engine we are launched in
-     */
     public PlanetesimalGameLogic(Engine engine) {
         this.engine = engine;
 

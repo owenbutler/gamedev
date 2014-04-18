@@ -11,11 +11,6 @@ import org.owenbutler.theta.constants.GameConstants;
 import org.owenbutler.theta.logic.GameLogic;
 import org.owenbutler.theta.logic.HudManager;
 
-/**
- * Player ship for the theta game.
- *
- * @author Owen Butler
- */
 public class Player extends BaseControllableDrawableGameObject implements MouseListener {
 
     private int facingX;
@@ -54,9 +49,6 @@ public class Player extends BaseControllableDrawableGameObject implements MouseL
         health = GameConstants.PLAYER_HEALTH;
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         baseDrawableThink();
@@ -64,11 +56,6 @@ public class Player extends BaseControllableDrawableGameObject implements MouseL
         lookat(facingX, facingY);
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
 
         if (otherBody instanceof EnemyBullet || otherBody instanceof SmallHomingEnemy) {

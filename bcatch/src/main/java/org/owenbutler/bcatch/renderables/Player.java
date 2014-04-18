@@ -43,19 +43,11 @@ public class Player extends BaseControllableDrawableGameObject
 
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         baseDrawableThink();
     }
 
-    /**
-     * Called when we finish catching bullets.
-     *
-     * @param numCaughtBullets number of bullets we caught
-     */
     public void unleashBullets(int numCaughtBullets) {
 
         numBulletsInCurrentFire = numCaughtBullets;
@@ -115,11 +107,6 @@ public class Player extends BaseControllableDrawableGameObject
         bulletCatcherGone = true;
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Bullet || otherBody instanceof Enemy) {
 
@@ -213,16 +200,10 @@ public class Player extends BaseControllableDrawableGameObject
         this.dead = dead;
     }
 
-    /**
-     * Pause requested.
-     */
     public void pause() {
         gameEngine.pause();
     }
 
-    /**
-     * The opposite of pause.
-     */
     public void unPause() {
         gameEngine.unPause();
     }

@@ -14,9 +14,6 @@ public class WarpballHudManager
 
     private boolean showingIntroScreen;
 
-    /**
-     * Render the HUD for this frame.
-     */
     public void doRenderHud() {
 
         if (renderHud) {

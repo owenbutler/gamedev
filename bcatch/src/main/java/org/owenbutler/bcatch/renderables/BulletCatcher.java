@@ -11,13 +11,6 @@ public class BulletCatcher
 
     protected int numCaughtBullets;
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x        x position
-     * @param y        y position
-     * @param theOwner the object owner
-     */
     public BulletCatcher(float x, float y, Player theOwner) {
         super(AssetConstants.gfx_bulletCatcher, x, y, 128, 128);
         setScreenClipRemove(true);
@@ -28,9 +21,6 @@ public class BulletCatcher
         owner = theOwner;
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         setX(owner.getX());
         setY(owner.getY());
@@ -55,11 +45,6 @@ public class BulletCatcher
         bullet.fadeAway();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Bullet) {
             caughtABullet((Bullet) otherBody);

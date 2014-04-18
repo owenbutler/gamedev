@@ -135,7 +135,6 @@ public class DefaultGameFlowLogic
 
         } catch (Throwable thr) {
             logger.error("error getting persistence service", thr);
-            return;
         }
     }
 
@@ -199,7 +198,6 @@ public class DefaultGameFlowLogic
         } catch (Throwable thr) {
             attemptWebstartHighScores = false;
             logger.debug("fatal error using webstart services to get highscores.  Probably not running in webstart, so disabling further tries");
-            return;
         }
     }
 
@@ -212,9 +210,6 @@ public class DefaultGameFlowLogic
         }
     }
 
-    /**
-     * Called when the player requests to start the game.
-     */
     public void playerSpawns() {
 
         if (player == null) {

@@ -21,12 +21,6 @@ public class Player
 
     protected boolean dead;
 
-    /**
-     * constructor.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Player(float x, float y) {
         super(AssetConstants.gfx_player, x, y, GameConstants.PLAYER_WIDTH, GameConstants.PLAYER_HEIGHT);
 
@@ -65,9 +59,6 @@ public class Player
         }
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         if (dead) {
@@ -79,11 +70,6 @@ public class Player
         baseDrawableThink();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Spaceman || otherBody instanceof Enemy) {
             // we die!

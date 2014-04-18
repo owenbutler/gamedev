@@ -7,12 +7,6 @@ import org.owenbutler.invasion.constants.AssetConstants;
 
 public class Spaceman extends BaseDrawableGameObject {
 
-    /**
-     * constructor.
-     *
-     * @param x x co-ord
-     * @param y y co-ord
-     */
     public Spaceman(float x, float y) {
         super(AssetConstants.gfx_spaceman, x, y, 16.0f, 16.0f);
 
@@ -43,9 +37,6 @@ public class Spaceman extends BaseDrawableGameObject {
         setVelXYRandom(20);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
 
@@ -64,11 +55,6 @@ public class Spaceman extends BaseDrawableGameObject {
         removeSelf();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof BaseBrick) {
             explode();

@@ -1,12 +1,5 @@
 package org.owenbutler.warpball.constants;
 
-/**
- * Asset names here.
- *
- * Sound and graphics.
- *
- * @author Owen Butler
- */
 public class AssetConstants {
 
     public static String gfx_paddle = "gfx/paddle.png";

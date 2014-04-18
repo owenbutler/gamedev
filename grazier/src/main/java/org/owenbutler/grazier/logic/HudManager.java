@@ -7,9 +7,6 @@ public class HudManager extends HudManagerSupport {
 
     protected boolean showGameOver;
 
-    /**
-     * Render the HUD for this frame.
-     */
     public void doRenderHud() {
 
         if (showingIntroScreen) {

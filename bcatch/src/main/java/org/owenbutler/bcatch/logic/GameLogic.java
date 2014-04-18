@@ -49,7 +49,6 @@ public class GameLogic implements MouseListener {
 
     protected Background background;
 
-    @SuppressWarnings({"unchecked"})
     public GameLogic(Engine engine) {
         this.engine = engine;
 
@@ -65,6 +64,7 @@ public class GameLogic implements MouseListener {
             highScores.add(1000000);
 
         } else {
+            //noinspection unchecked
             highScores = (List<Integer>) dataStore.loadObject(false);
         }
     }

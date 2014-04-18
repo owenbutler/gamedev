@@ -26,9 +26,6 @@ public class HudManager extends HudManagerSupport {
         setDefaultColor(levelTextColor);
     }
 
-    /**
-     * Render the HUD for this frame.
-     */
     public void doRenderHud() {
 
         if (showingIntroScreen) {

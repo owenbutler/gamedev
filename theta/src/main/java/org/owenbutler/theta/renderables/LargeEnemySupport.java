@@ -18,9 +18,6 @@ public abstract class LargeEnemySupport extends AbstractEnemyBase {
     private float adjustedBulletSpeed = GameConstants.ENEMY_BULLET_SPEED;
     protected boolean fireIncreasesSpeed;
 
-    /**
-     * fire type config
-     */
     protected float fireInterval = 1.0f;
     private int numBulletsFireType1 = 20;
     private float fireType1Time = 1.0f;
@@ -66,15 +63,6 @@ public abstract class LargeEnemySupport extends AbstractEnemyBase {
         startFiring();
     }
 
-    /**
-     * constructor.
-     *
-     * @param gfx    sprite
-     * @param x      position
-     * @param y      position
-     * @param width  width
-     * @param height height
-     */
     public LargeEnemySupport(String gfx, float x, float y, int width, int height) {
         super(gfx, x, y, width, height);
 
@@ -142,9 +130,6 @@ public abstract class LargeEnemySupport extends AbstractEnemyBase {
 
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

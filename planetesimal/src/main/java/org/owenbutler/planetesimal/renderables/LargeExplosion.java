@@ -5,20 +5,9 @@ import org.jgameengine.common.gameobjects.BaseDrawableGameObject;
 import org.owenbutler.planetesimal.constants.AssetConstants;
 import org.owenbutler.planetesimal.constants.GameConstants;
 
-/**
- * Very Small explosion.
- *
- * @author Owen Butler
- */
 public class LargeExplosion
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new very small explosion.
-     *
-     * @param x    x position
-     * @param y    y position
-     */
     public LargeExplosion(float x, float y) {
         super(AssetConstants.gfx_largeExplosion, x, y, 64, 64);
 
@@ -38,9 +27,6 @@ public class LargeExplosion
     }
 
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

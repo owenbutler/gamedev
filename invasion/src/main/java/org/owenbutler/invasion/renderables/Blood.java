@@ -7,12 +7,6 @@ import org.owenbutler.invasion.constants.GameConstants;
 public class Blood
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Blood(float x, float y) {
         super(AssetConstants.gfx_blood, x, y, 1, 1);
         setScreenClipRemove(true);
@@ -26,9 +20,6 @@ public class Blood
         setScale(1, 1);
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }

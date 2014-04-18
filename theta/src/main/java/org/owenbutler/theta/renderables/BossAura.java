@@ -11,13 +11,6 @@ public class BossAura
     private final int initialX = 128;
     private final int initialY = 128;
 
-    /**
-     * create a new debri.
-     *
-     * @param x    x position
-     * @param y    y position
-     * @param boss boss we are tracking
-     */
     public BossAura(float x, float y, LargeEnemySupport boss) {
         super(AssetConstants.gfx_explosionSmoke, x, y, 128, 128);
 
@@ -28,9 +21,6 @@ public class BossAura
         this.boss = boss;
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         x = boss.getX();
         y = boss.getY();

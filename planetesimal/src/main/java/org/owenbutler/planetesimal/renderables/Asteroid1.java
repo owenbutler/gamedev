@@ -6,12 +6,6 @@ import org.owenbutler.planetesimal.constants.GameConstants;
 public class Asteroid1
         extends BaseAsteroid {
 
-    /**
-     * constructor.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Asteroid1(float x, float y) {
         super(AssetConstants.gfx_asteroid1, x, y, GameConstants.ASTEROID1_WIDTH, GameConstants.ASTEROID1_HEIGHT);
 
@@ -32,9 +26,6 @@ public class Asteroid1
         dustSpawnMod = 50;
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
 
         baseDrawableThink();

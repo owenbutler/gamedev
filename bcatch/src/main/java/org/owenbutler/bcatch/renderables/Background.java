@@ -15,9 +15,6 @@ public class Background
 
     public float defaultYTexSpeed = 0.2f;
 
-    /**
-     * create a new background.
-     */
     public Background() {
         super(AssetConstants.gfx_background, 400, 300, 800, 600);
 
@@ -31,9 +28,6 @@ public class Background
         yTexMod = defaultYTexSpeed;
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
 

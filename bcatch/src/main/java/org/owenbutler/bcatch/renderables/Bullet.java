@@ -8,12 +8,6 @@ import org.owenbutler.bcatch.constants.GameConstants;
 public class Bullet
         extends BaseDrawableGameObject {
 
-    /**
-     * create a new player bullet 1.
-     *
-     * @param x x position
-     * @param y y position
-     */
     public Bullet(float x, float y) {
         super(AssetConstants.gfx_bullet, x, y, 8, 8);
         setScreenClipRemove(true);
@@ -23,18 +17,10 @@ public class Bullet
 
     }
 
-    /**
-     * Run a frame of think time.
-     */
     public void think() {
         baseDrawableThink();
     }
 
-    /**
-     * Collision with another object.
-     *
-     * @param otherBody the object we collided with
-     */
     public void collision(Collidable otherBody) {
         if (otherBody instanceof Player) {
             removeSelf();
