@@ -11,7 +11,7 @@ Run the maven goal:
 
     mvn generate-resources
 
-This will expand the native libraries to ${project.root}/target/natives.  Add this directory to your library path in your ide:
+This will expand the native libraries to ${project.root}/target/natives.  Add this directory to your library path in your IDE:
 
 eg:
 
