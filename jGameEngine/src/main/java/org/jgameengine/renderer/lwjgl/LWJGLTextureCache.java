@@ -52,7 +52,7 @@ public class LWJGLTextureCache {
             try {
                 textureId = getTexture(path);
             } catch (IOException e) {
-                throw new RuntimeException("couldn't load texture :" + path, e);
+                throw new RuntimeException("couldn't load texture : " + path, e);
             }
 
             textures.put(path, textureId);
