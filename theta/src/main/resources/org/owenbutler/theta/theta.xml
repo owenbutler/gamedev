@@ -52,7 +52,6 @@
     <bean id="audioManager" class="org.jgameengine.audio.BlankAudioManager">
     </bean>
 
-
     <bean id="engineInitialiser" class="org.owenbutler.theta.initialiser.Initialiser">
         <property name="engine" ref="engine"/>
 

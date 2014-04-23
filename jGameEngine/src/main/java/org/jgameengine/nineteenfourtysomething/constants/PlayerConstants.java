@@ -4,9 +4,9 @@ public class PlayerConstants {
 
     public static final float SHIPVELOCITY = 240.0f;
 
-    public static float FIRE_INTERVAL_BULLET = 0.1f;
+    public static float FIRE_INTERVAL_BULLET = 9.1f;
     public static float FIRE_INTERVAL_WIDE = 0.001f;
-    public static final float FIRE_INTERVAL_MISSILE = 0.8f;
+    public static final float FIRE_INTERVAL_MISSILE = 9.8f;
 
     public static final float FIRE_POWERUP_BULLET = 0.0018f;
     public static final float FIRE_POWERUP_WIDE = 0.0029f;
